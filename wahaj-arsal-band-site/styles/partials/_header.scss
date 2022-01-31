@@ -1,0 +1,41 @@
+/** @format */
+
+@use "./mixins" as *;
+@use "./variables" as *;
+
+.navbar {
+  @include flex(column, center, center);
+  background-color: $clr-primary-dark;
+  width: 100%;
+  &__content {
+  }
+  &__brand {
+    text-decoration-line: none;
+    @include m-page-section-header;
+  }
+  &__logo {
+    list-style: none;
+    height: 1.25rem;
+    width: 7.5rem;
+  }
+  &__menu {
+    width: 100%;
+  }
+  &__list {
+    @include flex(row, space-evenly, center);
+    @include m-page-section-header;
+  }
+  &__item {
+    list-style: none;
+    text-align: center;
+    width: 100%;
+    &--active {
+      border-bottom: 2px solid white;
+      color: $clr-secondary-neutral;
+    }
+  }
+  &__link {
+    color: $clr-secondary-light;
+    text-decoration-line: none;
+  }
+}
