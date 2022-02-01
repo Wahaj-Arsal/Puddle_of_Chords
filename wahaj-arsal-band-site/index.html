@@ -14,29 +14,65 @@
       <!-- navbar start -->
       <nav class="navbar">
         <a class="navbar__brand" href="./index.html">
-          <!-- <h2 class="navbar__logo">BANDSITE</h2> -->
           <img class="navbar__logo" src="./assets/Logo/Logo-bandsite.svg" />
         </a>
         <div class="navbar__menu">
-          <ul class="navbar__list">
+          <ul class="navbar__content">
+            <!-- <div class="navbar__list"> -->
             <li class="navbar__item navbar__item--active">
-              <a class="navbar__link" href="#"> Biography </a>
+              <a class="navbar__link navbar__link--active" href="./index.html">
+                Biography
+              </a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link" href="#">Shows</a>
+              <a class="navbar__link" href="./partials/shows.html">Shows</a>
             </li>
+            <!-- </div> -->
           </ul>
         </div>
       </nav>
       <!-- navbar end -->
     </header>
+
     <section class="hero">
-      <div class="hero__title">
+      <!-- <div class="hero__title">
         <h1 class="hero__text">The Bees Knees</h1>
-      </div>
+      </div> -->
       <div class="hero__picture">
+        <!-- <div class="hero__overlay"> -->
         <img class="hero__img" src="assets/Images/hero-bio.jpg" alt="flowers" />
+        <div class="hero__overlay"></div>
+        <!-- </div> -->
       </div>
     </section>
+
+    <article class="about">
+      <div class="about__title">
+        <h2 class="about__heading">About the Musicians</h2>
+      </div>
+      <div class="about__content">
+        <img
+          class="about__img"
+          src="assets/Images/band.jpg"
+          alt="picture
+        of the band"
+        />
+        <p class="about__quote">
+          "We push each other to be the best. It's not uncommon for one of us to
+          say 'this needs to be better, back to the drawing board'"
+        </p>
+        <p class="about__text">
+          - Bryan Teddy, lead vocalist of The Bees Knees
+        </p>
+      </div>
+    </article>
+    <article class="main">
+      <h2 class="main__title">The bees Knees</h2>
+      <div class="main__content">
+        <div class="main__text">
+          <p class="main__para"></p>
+        </div>
+      </div>
+    </article>
   </body>
 </html>

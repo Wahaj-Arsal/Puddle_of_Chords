@@ -2,40 +2,72 @@
 
 @use "./mixins" as *;
 @use "./variables" as *;
+@use "./breakpoints" as *;
 
 .navbar {
-  @include flex(column, center, center);
+  @include flex(column, space-between, center);
   background-color: $clr-primary-dark;
-  width: 100%;
-  &__content {
+  @include tablet {
+    @include flex(row, center, center);
   }
   &__brand {
     text-decoration-line: none;
+    padding: 1rem 0 0.5rem 0;
     @include m-page-section-header;
+    @include tablet {
+      padding: 1.5rem;
+    }
   }
   &__logo {
-    list-style: none;
-    height: 1.25rem;
-    width: 7.5rem;
+    max-height: 1.25rem; //20px
+    max-width: 7.5rem; //120px;
   }
   &__menu {
     width: 100%;
+    @include tablet {
+      @include flex(row, flex-start, center);
+    }
   }
-  &__list {
-    @include flex(row, space-evenly, center);
-    @include m-page-section-header;
+
+  &__content {
+    @include flex(row, space-around, center);
   }
+
   &__item {
+    @include flex(row, center, center);
     list-style: none;
     text-align: center;
     width: 100%;
+    text-decoration-style: none;
+    @include m-sub-header;
+
     &--active {
-      border-bottom: 2px solid white;
-      color: $clr-secondary-neutral;
+      border-bottom: 0.25rem solid white;
+      @include font-bold;
+    }
+    &:hover {
+      border-bottom: 0.25rem solid white;
+    }
+
+    @include tablet {
+      @include flex(row, flex-start, center);
+      @include d-t-body-copy;
+      margin: 0 1.75rem;
     }
   }
   &__link {
-    color: $clr-secondary-light;
     text-decoration-line: none;
+    color: $clr-secondary-light;
+    padding-bottom: 0.5rem;
+    &--active {
+      @include font-bold;
+      color: $clr-primary-neutral;
+    }
+    &:hover {
+      color: $clr-primary-neutral;
+    }
+    @include tablet {
+      padding: 2rem 0;
+    }
   }
 }
