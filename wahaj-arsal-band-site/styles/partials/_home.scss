@@ -100,6 +100,7 @@
   &__text {
     padding: 0 0 1rem 0;
     @include tablet {
+      padding: 0 0 2.25rem 0;
       &:nth-child(odd) {
         padding-right: 1.125rem;
       }
@@ -117,8 +118,12 @@
 }
 
 .gallery {
+  background-color: $clr-secondary-neutral;
   padding: 0 1rem;
   @include tablet {
+    @include flex(column, center, flex-start);
+    // display: flex;
+    // flex-direction: column;
     padding: 0 2.25rem;
   }
   @include desktop {
@@ -127,14 +132,29 @@
   &__title {
     @include m-page-section-header;
     padding: 0 0 1rem 0;
+    @include tablet {
+      padding: 0 0 2.25rem 0;
+    }
   }
   &__photo {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
   &__img {
     width: 100%;
     padding: 0.5rem 0; //1rem total, 0.5 per picture
     &:nth-child(1) {
       padding: 0 0 0.5rem 0;
+    }
+    &:nth-last-child(n) {
+      padding: 0 0 1rem 0;
+    }
+    @include tablet {
+      width: 30%;
     }
   }
 }
