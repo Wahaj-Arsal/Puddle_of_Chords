@@ -54,16 +54,87 @@
   }
   &__quote {
     @include m-sub-header;
-    padding: 1rem 0;
+    padding: 1rem 0 0.5rem 0;
     @include tablet {
       @include d-t-sub-header;
-      padding: 2.25rem 0 0.5rem 0;
+      padding: 2.25rem 0 1rem 0;
     }
   }
   &__text {
+    @include m-sub-header;
+    padding: 0 0 1rem 0;
     @include tablet {
       @include d-t-body-copy;
+      //   @include d-t-sub-header;
       padding: 0 0 2.25rem 0;
+    }
+  }
+}
+
+.main {
+  padding: 0 1rem;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+  @include desktop {
+    padding: 0 4rem;
+  }
+  &__head {
+    @include tablet {
+      padding: 0 2.25rem;
+    }
+  }
+  &__title {
+    @include m-sub-header;
+    padding: 0 0 1rem 0;
+    @include tablet {
+      @include d-t-sub-header;
+      padding: 0 0 2.25rem 0;
+    }
+  }
+  &__content {
+    @include tablet {
+      @include flex(row, space-between, center);
+    }
+  }
+  &__text {
+    padding: 0 0 1rem 0;
+    @include tablet {
+      &:nth-child(odd) {
+        padding-right: 1.125rem;
+      }
+      &:nth-child(even) {
+        padding-left: 1.125rem;
+      }
+    }
+  }
+  &__para {
+    @include m-body-footer-copy;
+    @include tablet {
+      @include d-t-body-copy;
+    }
+  }
+}
+
+.gallery {
+  padding: 0 1rem;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+  @include desktop {
+    padding: 0 4rem;
+  }
+  &__title {
+    @include m-page-section-header;
+    padding: 0 0 1rem 0;
+  }
+  &__photo {
+  }
+  &__img {
+    width: 100%;
+    padding: 0.5rem 0; //1rem total, 0.5 per picture
+    &:nth-child(1) {
+      padding: 0 0 0.5rem 0;
     }
   }
 }
