@@ -14,50 +14,69 @@
   &__header {
     padding: 1rem 0;
     @include tablet {
-      @include flex(row, space-between, center);
-      padding: 3rem 0 2.25rem 0;
+      display: none;
+      //   @include flex(row, space-between, center);
+      //   padding: 3rem 0 2.25rem 0;
     }
   }
-  &__container {
-    @include tablet {
-      @include flex(row, flex-start, center);
-    }
-  }
+
   &__title {
     @include m-page-section-header;
     padding-bottom: 1rem;
     @include tablet {
+      display: none;
+      //   width: 30%;
+    }
+  }
+  &__caption {
+    display: none;
+    @include tablet {
+      display: flex;
       @include d-t-section-header;
-      padding: 0;
-      vertical-align: auto;
+      font-size: 2.125rem;
+      padding-bottom: 2.25rem;
     }
   }
   &__figures {
-    @include flex(row, null, center);
+    @include tablet {
+      display: none;
+    }
+  }
+  &__symbols {
+    display: none;
+    @include tablet {
+      display: flex;
+      padding: 0.625rem 0;
+      padding-bottom: 2.25rem;
+    }
   }
   &__icon {
-    padding-right: 2.25rem;
+    padding: 0 2rem 0 0;
+    // width: 100%;
     @include tablet {
-      padding-right: 0;
-      padding-left: 2.25rem;
     }
   }
   &__img {
+    // width: 20%;
   }
   &__emblem {
+    display: none;
     @include tablet {
-      @include flex(row, center, flex-end);
+      @include flex(row, flex-end, flex-end);
+      padding: 0.625rem 0;
+      padding-bottom: 2.25rem;
     }
   }
   &__label {
     display: none;
     @include tablet {
-      display: block;
+      display: flex;
     }
   }
   &__info {
     @include tablet {
       @include flex(row, space-between, center);
+      padding: 3rem 0 0 0;
     }
     @include desktop {
       @include flex(row, flex-start, center);
@@ -67,9 +86,9 @@
     padding: 0 0 1rem 0;
     @include tablet {
       padding-bottom: 2.25rem;
+      width: 30%;
     }
     @include desktop {
-      padding-right: 2.25rem;
     }
   }
   &__name {
@@ -109,7 +128,6 @@
   }
   &__copyright {
     @include m-body-footer-copy;
-    // padding: 1rem 0 0 0;
     @include tablet {
       @include d-t-footer-copy;
       padding: 0;
