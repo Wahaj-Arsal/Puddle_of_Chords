@@ -40,7 +40,10 @@
     width: 100%;
     text-decoration-style: none;
     @include m-sub-header;
-
+    &--inactive {
+      border-bottom: 0.25rem solid $clr-primary-dark;
+      @include font-bold;
+    }
     &--active {
       border-bottom: 0.25rem solid white;
       @include font-bold;

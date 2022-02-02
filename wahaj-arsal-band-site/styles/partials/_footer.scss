@@ -1,0 +1,118 @@
+/** @format */
+
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+.footer {
+  background-color: $clr-primary-dark;
+  color: $clr-primary-neutral;
+  padding: 0 1rem;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+  &__header {
+    padding: 1rem 0;
+    @include tablet {
+      @include flex(row, space-between, center);
+      padding: 3rem 0 2.25rem 0;
+    }
+  }
+  &__container {
+    @include tablet {
+      @include flex(row, flex-start, center);
+    }
+  }
+  &__title {
+    @include m-page-section-header;
+    padding-bottom: 1rem;
+    @include tablet {
+      @include d-t-section-header;
+      padding: 0;
+      vertical-align: auto;
+    }
+  }
+  &__figures {
+    @include flex(row, null, center);
+  }
+  &__icon {
+    padding-right: 2.25rem;
+    @include tablet {
+      padding-right: 0;
+      padding-left: 2.25rem;
+    }
+  }
+  &__img {
+  }
+  &__emblem {
+    @include tablet {
+      @include flex(row, center, flex-end);
+    }
+  }
+  &__label {
+    display: none;
+    @include tablet {
+      display: block;
+    }
+  }
+  &__info {
+    @include tablet {
+      @include flex(row, space-between, center);
+    }
+    @include desktop {
+      @include flex(row, flex-start, center);
+    }
+  }
+  &__company {
+    padding: 0 0 1rem 0;
+    @include tablet {
+      padding-bottom: 2.25rem;
+    }
+    @include desktop {
+      padding-right: 2.25rem;
+    }
+  }
+  &__name {
+    @include m-sub-header;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    @include tablet {
+      @include d-t-footer-copy;
+      font-weight: bold;
+      padding-bottom: 2.25rem;
+    }
+  }
+  &__address,
+  &__text {
+    @include m-body-footer-copy;
+    padding-bottom: 1rem;
+    @include tablet {
+      @include d-t-footer-copy;
+      padding-bottom: 2.25rem;
+    }
+  }
+  &__email {
+    @include m-body-footer-copy;
+    @include tablet {
+      @include d-t-footer-copy;
+    }
+  }
+  &__brand {
+    padding: 0 0 1rem 0;
+  }
+  &__logo {
+    padding: 2.25rem 0 1rem 0;
+    @include tablet {
+      display: none;
+      padding: 0;
+    }
+  }
+  &__copyright {
+    @include m-body-footer-copy;
+    // padding: 1rem 0 0 0;
+    @include tablet {
+      @include d-t-footer-copy;
+      padding: 0;
+    }
+  }
+}

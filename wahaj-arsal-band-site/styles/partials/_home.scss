@@ -5,20 +5,31 @@
 @use "./breakpoints" as *;
 
 .hero {
-  //   @include flex(row, center, center);
-  //   width: 100%;
+  // display: relative;
+  // @include flex(row, center, center);
+  // width: 100%;
   //   &__text {
   //     @include m-page-section-header;
   //     color: $clr-primary-neutral;
   //   }
   &__picture {
-    // width: 100%;
-    // position: relative;
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
   &__img {
+    // display: relative;
     width: 100%;
   }
   &__overlay {
+    position: absolute;
+    background-color: $clr-primary-dark;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
   }
 }
 
@@ -83,6 +94,9 @@
     @include tablet {
       padding: 0 2.25rem;
     }
+    @include desktop {
+      padding: 0 4rem;
+    }
   }
   &__title {
     @include m-sub-header;
@@ -122,8 +136,6 @@
   padding: 0 1rem;
   @include tablet {
     @include flex(column, center, flex-start);
-    // display: flex;
-    // flex-direction: column;
     padding: 0 2.25rem;
   }
   @include desktop {
@@ -131,9 +143,10 @@
   }
   &__title {
     @include m-page-section-header;
-    padding: 0 0 1rem 0;
+    padding: 1rem 0;
     @include tablet {
-      padding: 0 0 2.25rem 0;
+      @include d-t-section-header;
+      padding: 3rem 0 2.25rem 0;
     }
   }
   &__photo {
