@@ -68,7 +68,7 @@
   }
   &__heading {
     @include m-page-section-header;
-    padding: 1.5rem 0 1rem 0;
+    padding: 1.5rem 0 0.5rem 0;
     @include tablet {
       @include d-t-section-header;
       padding: 3rem 0 2.25rem 0;
@@ -87,7 +87,7 @@
   }
   &__quote {
     @include m-sub-header;
-    padding: 1rem 0 0.5rem 0;
+    padding: 0.5rem 0 0.5rem 0;
     @include tablet {
       @include d-t-sub-header;
       padding: 2.25rem 0 1rem 0;
@@ -95,7 +95,7 @@
   }
   &__text {
     @include m-sub-header;
-    padding: 0 0 1rem 0;
+    padding: 0 0 1.5rem 0;
     @include tablet {
       @include d-t-body-copy;
       //   @include d-t-sub-header;
@@ -168,7 +168,7 @@
   }
   &__title {
     @include m-page-section-header;
-    padding: 1rem 0;
+    padding: 1.5rem 0 1rem 0;
     @include tablet {
       @include d-t-section-header;
       padding: 3rem 0 2.25rem 0;

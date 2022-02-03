@@ -12,7 +12,7 @@
     padding: 0 2.25rem;
   }
   &__header {
-    padding: 1rem 0;
+    padding: 1.5rem 0 1rem 0;
     @include tablet {
       display: none;
       //   @include flex(row, space-between, center);
@@ -128,6 +128,8 @@
   }
   &__copyright {
     @include m-body-footer-copy;
+    font-size: 0.72rem;
+    // font-weight: bold;
     @include tablet {
       @include d-t-footer-copy;
       padding: 0;
