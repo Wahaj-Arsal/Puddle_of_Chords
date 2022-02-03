@@ -19,6 +19,7 @@ h2,
 h3,
 h4,
 p,
-ul {
+ul,
+img {
   @include margin-padding(0, 0);
 }
