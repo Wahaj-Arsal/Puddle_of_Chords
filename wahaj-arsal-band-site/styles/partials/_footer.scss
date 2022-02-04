@@ -4,9 +4,14 @@
 @use "./variables" as *;
 @use "./breakpoints" as *;
 
-.footer {
+.footer-background {
   background-color: $clr-primary-dark;
   color: $clr-primary-neutral;
+}
+
+.footer {
+  margin: 0 auto;
+  max-width: 1020px;
   padding: 0 1rem;
   @include tablet {
     @include flex(row, space-between, space-between);
@@ -17,7 +22,6 @@
     @include flex(row, flex-start, space-between);
     flex-wrap: wrap;
     width: 100%;
-    padding: 1.75rem 4rem;
   }
   &__content {
     @include flex(column, space-between, flex-start);
@@ -50,6 +54,7 @@
         order: 3;
         align-items: flex-end;
         justify-items: center;
+        padding: 0;
       }
       &:nth-child(7) {
         order: 7;
@@ -60,19 +65,19 @@
     @include desktop {
       @include flex(column, space-around, flex-start);
       &:nth-child(1) {
-        flex-basis: 22%;
+        flex-basis: 25%;
         order: 1;
       }
       &:nth-child(2) {
-        flex-basis: 22%;
+        flex-basis: 25%;
         order: 2;
       }
       &:nth-child(3) {
-        flex-basis: 22%;
+        flex-basis: 25%;
         order: 4;
       }
       &:nth-child(4) {
-        flex-basis: 22%;
+        flex-basis: 25%;
         order: 5;
       }
       &:nth-child(5) {
@@ -98,6 +103,7 @@
     @include tablet {
       padding: 0;
       @include d-t-section-header;
+      // font-size: 2.125rem;
     }
   }
   &__icon {
@@ -147,6 +153,7 @@
     @include m-body-footer-copy;
     font-size: 0.7rem;
     @include tablet {
+      @include d-t-footer-copy;
     }
   }
 }

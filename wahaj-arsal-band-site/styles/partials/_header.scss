@@ -4,9 +4,14 @@
 @use "./variables" as *;
 @use "./breakpoints" as *;
 
-.navbar {
-  @include flex(column, space-between, center);
+.navbar-container {
   background-color: $clr-primary-dark;
+}
+
+.navbar {
+  margin: 0 auto;
+  max-width: 1020px;
+  @include flex(column, space-between, center);
   @include tablet {
     @include flex(row, center, center);
   }
@@ -15,7 +20,7 @@
     padding: 1rem 0 0.5rem 0;
     @include m-page-section-header;
     @include tablet {
-      padding: 0 3rem;
+      padding: 0 2.25rem;
     }
   }
   &__logo {
