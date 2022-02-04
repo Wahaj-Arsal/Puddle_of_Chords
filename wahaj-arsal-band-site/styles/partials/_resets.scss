@@ -1,6 +1,7 @@
 /** @format */
 
 @use "./mixins" as *;
+@use "./variables" as *;
 
 html,
 body {
@@ -8,6 +9,7 @@ body {
   padding: 0;
   // height: 100%;
   box-sizing: border-box;
+  color: $clr-primary-dark;
 }
 *,
 *:before,

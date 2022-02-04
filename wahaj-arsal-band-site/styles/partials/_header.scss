@@ -45,16 +45,30 @@
     width: 100%;
     text-decoration-style: none;
     @include m-sub-header;
+    transition: 0.5s;
+    position: relative;
     &--inactive {
       border-bottom: 0.25rem solid $clr-primary-dark;
       @include font-bold;
     }
     &--active {
-      border-bottom: 0.25rem solid white;
+      border-bottom: 0.25rem solid $clr-secondary-neutral;
       @include font-bold;
     }
-    &:hover {
-      border-bottom: 0.25rem solid white;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 100%;
+      left: 0;
+      width: 100%;
+      border-bottom: 0.25rem solid $clr-secondary-neutral;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.5s;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: center;
     }
 
     @include tablet {
@@ -74,6 +88,7 @@
     &:hover {
       color: $clr-primary-neutral;
     }
+
     @include tablet {
       padding: 1.25rem 0;
     }

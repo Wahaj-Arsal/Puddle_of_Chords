@@ -87,6 +87,8 @@
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.375rem;
+  transition: 0.5s;
+  position: relative;
 }
 .navbar__item--inactive {
   border-bottom: 0.25rem solid #323232;
@@ -94,12 +96,24 @@
   font-weight: 700;
 }
 .navbar__item--active {
-  border-bottom: 0.25rem solid white;
+  border-bottom: 0.25rem solid #fafafa;
   font-family: "Avenir-Bold";
   font-weight: 700;
 }
-.navbar__item:hover {
-  border-bottom: 0.25rem solid white;
+.navbar__item::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.25rem solid #fafafa;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.5s;
+}
+.navbar__item:hover::after {
+  transform: scaleX(1);
+  transform-origin: center;
 }
 @media only screen and (min-width: 768px) {
   .navbar__item {
@@ -361,6 +375,7 @@ body {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
+  color: #323232;
 }
 
 *,
@@ -598,13 +613,19 @@ img {
   }
 }
 .gallery__img {
+  transition: all 1s ease-out;
   width: 100%;
+  filter: grayscale(100%);
   padding: 0.5rem 0;
 }
 @media only screen and (min-width: 768px) {
   .gallery__img {
     width: 31%;
   }
+}
+.gallery__img:hover {
+  filter: grayscale(0%);
+  transition: all 0.5s ease-out;
 }
 
 /** @format *//*# sourceMappingURL=bio.css.map */
