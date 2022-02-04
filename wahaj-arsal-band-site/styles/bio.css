@@ -44,7 +44,7 @@
 }
 @media only screen and (min-width: 768px) {
   .navbar__brand {
-    padding: 1.5rem;
+    padding: 0 3rem;
   }
 }
 .navbar__logo {
@@ -125,7 +125,7 @@
 }
 @media only screen and (min-width: 768px) {
   .navbar__link {
-    padding: 2rem 0;
+    padding: 1.25rem 0;
   }
 }
 
@@ -162,6 +162,9 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 0.75rem 0;
+}
+.footer__content:nth-child(6) {
+  padding: 2.5rem 0 0 0;
 }
 @media only screen and (min-width: 768px) {
   .footer__content {
@@ -331,12 +334,14 @@
   font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
+  font-size: 0.7rem;
 }
 /** @format */
 html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -358,36 +363,20 @@ img {
 }
 
 /** @format */
-.hero__picture {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.hero__img {
-  width: 100%;
-  height: 100%;
-  z-index: 4;
-}
-.hero__overlay {
-  position: absolute;
-  background-color: #323232;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
+.hero {
+  background: url("../../assets/Images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1000px rgba(50, 50, 50, 0.5);
 }
 .hero__title {
   font-family: "Avenir-Bold";
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
-  position: absolute;
-  top: 50%;
-  z-index: 20;
+  padding: 25vw 1rem;
   color: #ffffff;
-  padding: 0 0 0 1rem;
 }
 @media only screen and (min-width: 768px) {
   .hero__title {
@@ -395,12 +384,12 @@ img {
     font-weight: 700;
     font-size: 3.75rem;
     line-height: 4.25rem;
-    padding: 0 2.25rem;
+    padding: 25vw 3rem;
   }
 }
 @media only screen and (min-width: 1280px) {
   .hero__title {
-    padding: 0 5rem;
+    padding: 22vw 0;
   }
 }
 
@@ -409,7 +398,7 @@ img {
 }
 @media only screen and (min-width: 768px) {
   .about {
-    padding: 0 2.25rem;
+    padding: 0 3rem;
   }
 }
 @media only screen and (min-width: 1280px) {

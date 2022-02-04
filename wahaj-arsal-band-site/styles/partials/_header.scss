@@ -15,7 +15,7 @@
     padding: 1rem 0 0.5rem 0;
     @include m-page-section-header;
     @include tablet {
-      padding: 1.5rem;
+      padding: 0 3rem;
     }
   }
   &__logo {
@@ -70,7 +70,7 @@
       color: $clr-primary-neutral;
     }
     @include tablet {
-      padding: 2rem 0;
+      padding: 1.25rem 0;
     }
   }
 }
