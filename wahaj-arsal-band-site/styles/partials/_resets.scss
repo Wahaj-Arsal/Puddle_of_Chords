@@ -1,6 +1,5 @@
 /** @format */
 
-@use "./mixins" as *;
 @use "./variables" as *;
 
 html,
@@ -23,5 +22,6 @@ h4,
 p,
 ul,
 img {
-  @include margin-padding(0, 0);
+  margin: 0;
+  padding: 0;
 }

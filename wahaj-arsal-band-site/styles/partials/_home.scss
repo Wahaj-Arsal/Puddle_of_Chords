@@ -3,29 +3,27 @@
 @use "./mixins" as *;
 @use "./variables" as *;
 @use "./breakpoints" as *;
-@use "./resets" as *;
 
-.hero-container {
+.hero {
   background: url("../../assets/Images/hero-bio.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: inset 0 0 0 1000px rgba(50, 50, 50, 0.5); //BandSite-Black color changed to rgb.
-}
 
-.hero {
-  margin: 0 auto;
-  max-width: 1020px;
+  &__content {
+    margin: 0 auto;
+    max-width: 1020px;
+  }
+
   &__title {
     @include m-page-section-header;
     padding: 21vw 1rem;
     color: $clr-primary-neutral;
+
     @include tablet {
       @include d-t-page-header;
       padding: 21vw 2.25rem;
-    }
-    @include desktop {
-      // padding: 25vw 2.25rem;
     }
   }
 }
@@ -34,45 +32,53 @@
   margin: 0 auto;
   max-width: 1020px;
   padding: 0 1rem;
+
   @include tablet {
     padding: 0 2.25rem;
   }
-  @include desktop {
-    // padding: 0 2.25rem;
-  }
+
   &__title {
     @include flex(column, center, flex-start);
   }
+
   &__heading {
     @include m-page-section-header;
     padding: 1.5rem 0 0.5rem 0;
+
     @include tablet {
       @include d-t-section-header;
       padding: 3rem 0 2.25rem 0;
     }
   }
+
   &__content {
     @include tablet {
-      padding: 0 2.25rem;
+      padding: 0 3.5rem;
     }
+
     @include desktop {
-      // padding: 0 4rem;
+      padding: 0 5rem;
     }
   }
+
   &__img {
     width: 100%;
   }
+
   &__quote {
     @include m-sub-header;
-    padding: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem 0;
+
     @include tablet {
       @include d-t-sub-header;
       padding: 2.5rem 0 1rem 0;
     }
   }
+
   &__text {
     @include m-sub-header;
     padding: 0 0 1.5rem 0;
+
     @include tablet {
       @include d-t-body-copy;
       font-weight: bold;
@@ -85,40 +91,51 @@
   margin: 0 auto;
   max-width: 1020px;
   padding: 0 1rem;
+
   @include tablet {
     padding: 0 2.25rem;
   }
+
   &__head {
     @include tablet {
-      padding: 0 2.25rem;
+      padding: 0 3.5rem;
+    }
+
+    @include desktop {
+      padding: 0 5rem;
     }
   }
+
   &__title {
     @include m-body-footer-copy;
     font-weight: 600;
     padding: 0 0 1rem 0;
+
     @include tablet {
       @include d-t-sub-header;
-      padding: 0 0 1.5rem 0;
+      padding: 0 0 1rem 0;
     }
   }
+
   &__content {
     @include tablet {
-      @include flex(row, space-between, center);
+      @include flex(row, space-between, top);
     }
   }
+
   &__text {
-    padding: 0 0 1rem 0;
+    padding: 0 0 1.5rem 0;
+
     @include tablet {
-      padding: 0 0 2.25rem 0;
       &:nth-child(odd) {
-        padding-right: 1.125rem;
+        padding-right: 1rem;
       }
       &:nth-child(even) {
-        padding-left: 1.125rem;
+        padding-left: 1rem;
       }
     }
   }
+
   &__para {
     @include m-body-footer-copy;
     @include tablet {
@@ -127,26 +144,30 @@
   }
 }
 
-.gallery-container {
-  background-color: $clr-secondary-neutral;
-}
-
 .gallery {
-  margin: 0 auto;
-  max-width: 1020px;
-  padding: 0 1rem;
-  @include tablet {
-    @include flex(column, center, flex-start);
-    padding: 0 2.25rem;
+  background-color: $clr-secondary-neutral;
+
+  &__content {
+    margin: 0 auto;
+    max-width: 1020px;
+    padding: 0 1rem;
+
+    @include tablet {
+      @include flex(column, center, flex-start);
+      padding: 0 2.25rem;
+    }
   }
+
   &__title {
     @include m-page-section-header;
     padding: 1.5rem 0 1rem 0;
+
     @include tablet {
       @include d-t-section-header;
       padding: 3rem 0 2.25rem 0;
     }
   }
+
   &__photo {
     @include tablet {
       @include flex(row, space-between, center);
@@ -159,6 +180,7 @@
     width: 100%;
     filter: grayscale(100%);
     padding: 0.5rem 0; //1rem total, 0.5 per picture
+
     @include tablet {
       width: 31%;
     }

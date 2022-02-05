@@ -43,21 +43,24 @@
 
   &__item {
     @include flex(row, center, center);
+    @include m-sub-header;
     list-style: none;
     text-align: center;
     width: 100%;
     text-decoration-style: none;
-    @include m-sub-header;
     transition: 0.5s;
     position: relative;
+
     &--inactive {
       border-bottom: 0.25rem solid $clr-primary-dark;
       @include font-bold;
     }
+
     &--active {
       border-bottom: 0.25rem solid $clr-secondary-neutral;
       @include font-bold;
     }
+
     &::after {
       position: absolute;
       content: "";
@@ -69,6 +72,7 @@
       transform-origin: center;
       transition: transform 0.5s;
     }
+
     &:hover::after {
       transform: scaleX(1);
       transform-origin: center;
@@ -80,14 +84,17 @@
       margin: 0 1.75rem;
     }
   }
+
   &__link {
     text-decoration-line: none;
     color: $clr-secondary-light;
     padding-bottom: 0.5rem;
+
     &--active {
       @include font-bold;
       color: $clr-primary-neutral;
     }
+
     &:hover {
       color: $clr-primary-neutral;
     }

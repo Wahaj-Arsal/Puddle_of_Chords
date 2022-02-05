@@ -1,4 +1,31 @@
 /** @format */
+/** @format */
+html,
+body {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  color: #323232;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+/** @format */
 @font-face {
   font-family: "Avenir-Regular";
   src: url(../assets/Font/AvenirNextLTPro-Regular.otf);
@@ -11,7 +38,6 @@
   font-family: "Avenir-Bold";
   src: url(../../assets/Font/AvenirNextLTPro-Bold.otf);
 }
-/** @format */
 /** @format */
 /* media query for mobile */
 /* media query for tablet */
@@ -82,15 +108,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: "Avenir-Demi";
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
   list-style: none;
   text-align: center;
   width: 100%;
   -webkit-text-decoration-style: none;
           text-decoration-style: none;
-  font-family: "Avenir-Demi";
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.375rem;
   transition: 0.5s;
   position: relative;
 }
@@ -153,18 +179,17 @@
 }
 
 /** @format */
-.footer-background {
+.footer {
   background-color: #323232;
   color: #ffffff;
 }
-
-.footer {
+.footer__details {
   margin: 0 auto;
   max-width: 1020px;
   padding: 0 1rem;
 }
 @media only screen and (min-width: 768px) {
-  .footer {
+  .footer__details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -174,7 +199,7 @@
   }
 }
 @media only screen and (min-width: 1280px) {
-  .footer {
+  .footer__details {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -278,11 +303,12 @@
 }
 @media only screen and (min-width: 768px) {
   .footer__title {
-    padding: 0;
     font-family: "Avenir-Bold";
     font-weight: 700;
     font-size: 2.25rem;
     line-height: 2.75rem;
+    padding: 0;
+    font-size: 2.15rem;
   }
 }
 .footer__icon {
@@ -364,7 +390,7 @@
   font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
 }
 @media only screen and (min-width: 768px) {
   .footer__copyright {
@@ -376,41 +402,14 @@
 }
 
 /** @format */
-html,
-body {
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  color: #323232;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-img {
-  margin: 0;
-  padding: 0;
-}
-
-/** @format */
-.hero-container {
+.hero {
   background: url("../../assets/Images/hero-bio.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: inset 0 0 0 1000px rgba(50, 50, 50, 0.5);
 }
-
-.hero {
+.hero__content {
   margin: 0 auto;
   max-width: 1020px;
 }
@@ -431,6 +430,7 @@ img {
     padding: 21vw 2.25rem;
   }
 }
+
 .about {
   margin: 0 auto;
   max-width: 1020px;
@@ -465,7 +465,12 @@ img {
 }
 @media only screen and (min-width: 768px) {
   .about__content {
-    padding: 0 2.25rem;
+    padding: 0 3.5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .about__content {
+    padding: 0 5rem;
   }
 }
 .about__img {
@@ -476,7 +481,7 @@ img {
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.375rem;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem 0;
 }
 @media only screen and (min-width: 768px) {
   .about__quote {
@@ -517,7 +522,12 @@ img {
 }
 @media only screen and (min-width: 768px) {
   .main__head {
-    padding: 0 2.25rem;
+    padding: 0 3.5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main__head {
+    padding: 0 5rem;
   }
 }
 .main__title {
@@ -534,7 +544,7 @@ img {
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 2rem;
-    padding: 0 0 1.5rem 0;
+    padding: 0 0 1rem 0;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -542,21 +552,18 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
   }
 }
 .main__text {
-  padding: 0 0 1rem 0;
+  padding: 0 0 1.5rem 0;
 }
 @media only screen and (min-width: 768px) {
-  .main__text {
-    padding: 0 0 2.25rem 0;
-  }
   .main__text:nth-child(odd) {
-    padding-right: 1.125rem;
+    padding-right: 1rem;
   }
   .main__text:nth-child(even) {
-    padding-left: 1.125rem;
+    padding-left: 1rem;
   }
 }
 .main__para {
@@ -574,17 +581,16 @@ img {
   }
 }
 
-.gallery-container {
+.gallery {
   background-color: #fafafa;
 }
-
-.gallery {
+.gallery__content {
   margin: 0 auto;
   max-width: 1020px;
   padding: 0 1rem;
 }
 @media only screen and (min-width: 768px) {
-  .gallery {
+  .gallery__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
