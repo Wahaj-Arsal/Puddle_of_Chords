@@ -18,11 +18,10 @@
 /* media query for landscape, desktop pixel density desktops */
 /* media query for high pixel density desktops */
 /** @format */
-.navbar-container {
+.navbar {
   background-color: #323232;
 }
-
-.navbar {
+.navbar__header {
   margin: 0 auto;
   max-width: 1020px;
   display: flex;
@@ -31,7 +30,7 @@
   align-items: center;
 }
 @media only screen and (min-width: 768px) {
-  .navbar {
+  .navbar__header {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -49,7 +48,7 @@
 }
 @media only screen and (min-width: 768px) {
   .navbar__brand {
-    padding: 0 2.25rem;
+    padding: 0.5rem 2.25rem 0 2.25rem;
   }
 }
 .navbar__logo {
@@ -72,6 +71,11 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+@media only screen and (min-width: 768px) {
+  .navbar__content {
+    padding: 0.5rem 0 0 0;
+  }
 }
 .navbar__item {
   display: flex;
@@ -339,6 +343,8 @@
   font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
+  color: #ffffff;
+  text-decoration: none;
 }
 @media only screen and (min-width: 768px) {
   .footer__email {
@@ -613,7 +619,7 @@ img {
   }
 }
 .gallery__img {
-  transition: all 1s ease-out;
+  transition: all 1s ease-in;
   width: 100%;
   filter: grayscale(100%);
   padding: 0.5rem 0;

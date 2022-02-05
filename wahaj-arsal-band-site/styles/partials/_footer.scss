@@ -140,6 +140,8 @@
   }
   &__email {
     @include m-body-footer-copy;
+    color: $clr-primary-neutral;
+    text-decoration: none;
     @include tablet {
       @include d-t-body-copy;
     }
