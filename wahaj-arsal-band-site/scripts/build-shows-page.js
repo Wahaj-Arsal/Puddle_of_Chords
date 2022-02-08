@@ -63,76 +63,42 @@ function createDiv(content) {
   div.classList.add("show");
 
   //Label - Date
-  let date = document.createElement("label");
-  date.classList.add("show__label");
-  date.innerText = "Date";
-  let dateTitle = document.createElement("p");
-  dateTitle.classList.add("show__title");
-  dateTitle.innerText = content.date;
+  createContent("Date", content.date, div);
 
   //Label - Venue
-  let venue = document.createElement("label");
-  venue.classList.add("show__label");
-  venue.innerText = "Venue";
-  let venueTitle = document.createElement("p");
-  venueTitle.classList.add("show__venue");
-  venueTitle.innerText = content.venue;
+  createContent("Venue", content.venue, div);
 
   //Label - Location
-  let location = document.createElement("label");
-  location.classList.add("show__label");
-  location.innerText = "Location";
-  let locationTitle = document.createElement("p");
-  locationTitle.classList.add("show__location");
-  locationTitle.innerText = content.location;
+  createContent("Location", content.location, div);
 
   //Button
   let button = document.createElement("button");
   button.classList.add("show__btn");
   button.innerText = "Buy Tickets";
 
-  div.appendChild(date);
-  div.appendChild(dateTitle);
-
-  div.appendChild(venue);
-  div.appendChild(venueTitle);
-
-  div.appendChild(location);
-  div.appendChild(locationTitle);
-
   div.appendChild(button);
 
   return div;
 }
 
-// function appendP(myArray) {
-//   const itemParent = document.querySelector(".show");
-//   //   console.log(container);
-//   for (i = 0; i < myArray.length; i++) {
-//     element = createP(myArray[i]);
-//     itemParent.appendChild(element);
-//     // console.log("HERE");
-//   }
-// }
+function createContent(labelName, content, div) {
+  const label = createLabel(labelName);
+  const text = createP(content);
 
-// function createP() {
-//   let newElement = document.createElement("p");
-//   newElement.className = "class";
-//   newElement.innerHTML = "Print Item";
-//   return newElement;
-// }
-// function appendItem() {
-//   const item = document.querySelector(".show");
-//   //   console.log(container);
-//   for (i = 0; i < myArray.length; i++) {
-//     newElement = createItem(myArray[i]);
-//     item.appendChild(newElement);
-//   }
-// }
+  div.appendChild(label);
+  div.appendChild(text);
+}
 
-// function createItem() {
-//   let p = document.createElement("p");
-//   p.classList.add("class");
-//   //   item.appendChild(p);
-//   return p;
-// }
+function createLabel(text) {
+  let label = document.createElement("label");
+  label.classList.add("show__label");
+  label.innerText = text;
+  return label;
+}
+
+function createP(text) {
+  let pTag = document.createElement("p");
+  pTag.classList.add("show__location");
+  pTag.innerText = text;
+  return pTag;
+}
