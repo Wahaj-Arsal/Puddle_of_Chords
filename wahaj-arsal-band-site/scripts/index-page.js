@@ -56,52 +56,10 @@ function loadArray(myArray) {
 function createHTML(comment) {
   const element = document.createElement("div");
   element.classList.add("display__comment");
+  //use pre-pend child to insert the items before pre-existing items. no DOM templates
   element.innerHTML = `
         <h5 class="display__name">${comment.name}</h5>
         <p class="display__text">${comment.comment}</p>
       `;
   return element;
 }
-
-/** Whats Best?
- * Insert information onto the page as soon as it goes into the array?
- * Or push items into the array and then for.each the whole array... possible duplication?
- *     Maybe only for.each when the page is refreshed?? so all the information is displayed?
- */
-// function displayComment(comment) {
-//   const element = document.createElement("div");
-//   element.classList.add("comment");
-//   element.innerHTML = `
-//     <h5 class="display__name">${comment.name}</h5>
-//     <p class="display__comment">${comment.comment}</p>
-//   `;
-//   displayReviews.insertAdjacentElement(element, comment);
-// }
-
-// function displayComment(comment) {
-//   const element = createHTML(comment);
-//   if (displayReviews.children.length > 0) {
-//     const displayComment = document.querySelector(".display__comment");
-//     // console.log(displayComment);
-//     displayReviews.insertBefore(element, displayComment);
-//     // console.log("TRUE");
-//   } else {
-//     displayReviews.appendChild(element);
-//     // console.log("FALSE");
-//   }
-// }
-
-// function loadComments(myArray) {
-//   let html = "";
-//   myArray.forEach((element) => {
-//     html += `
-//         <div class = "display__comment">
-//             <h5 class="display__name">${element.name}</h5>
-//             <p class="display__text">${element.comment}</p>
-//         </div>
-//       `;
-//   });
-//   displayReviews.innerHTML = html;
-// }
-
-// function loadComments(myArray) {}
