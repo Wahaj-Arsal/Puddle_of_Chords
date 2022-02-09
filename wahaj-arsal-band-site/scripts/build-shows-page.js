@@ -42,18 +42,16 @@ function createSection(myArray) {
   const section = document.createElement("form");
   section.classList.add("container");
   body.appendChild(section);
-  console.log(section.className);
+  // console.log(section.className);
   appendDiv(myArray);
-  // appendP(myArray);
 }
 
 function appendDiv(myArray) {
   const container = document.querySelector(".container");
-  //   console.log(container);
-  for (i = 0; i < myArray.length; i++) {
-    element = createDiv(myArray[i]);
+  for (let i = 0; i < myArray.length; i++) {
+    const element = createDiv(myArray[i]);
     container.appendChild(element);
-    console.log("HERE");
+    // console.log("HERE");
   }
 }
 
@@ -83,7 +81,7 @@ function createDiv(content) {
 
 function createContent(labelName, content, div) {
   const label = createLabel(labelName);
-  const text = createP(content);
+  const text = createP(content, "show__location");
 
   div.appendChild(label);
   div.appendChild(text);
@@ -96,9 +94,9 @@ function createLabel(text) {
   return label;
 }
 
-function createP(text) {
+export function createP(text, className) {
   let pTag = document.createElement("p");
-  pTag.classList.add("show__location");
+  pTag.classList.add(className);
   pTag.innerText = text;
   return pTag;
 }
