@@ -1,6 +1,6 @@
 /** @format */
 
-import { createP } from "./build-shows-page.js";
+// import { createP } from "./build-shows-page";
 
 const commentName = document.querySelector(".comment__name-input");
 const commentText = document.querySelector(".comment__text-input");
@@ -36,6 +36,7 @@ function pushObject(name, comment) {
   myObj.comment = comment.value;
   myArray.push(myObj);
   loadArray(myArray);
+  // createHTML(myObj);
 }
 
 function loadArray(myArray) {
@@ -69,4 +70,11 @@ function createTitle(comment, className) {
   title.classList.add(className);
   title.innerText = comment;
   return title;
+}
+//creates the P tags inside the div.show
+function createP(text, className) {
+  let pTag = document.createElement("p");
+  pTag.classList.add(className);
+  pTag.innerText = text;
+  return pTag;
 }

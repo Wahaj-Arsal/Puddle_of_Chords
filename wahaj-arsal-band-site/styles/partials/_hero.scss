@@ -1,0 +1,29 @@
+/** @format */
+
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+.hero {
+  background: url("../../assets/Images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1000px rgba(50, 50, 50, 0.5); //BandSite-Black color changed to rgb.
+
+  &__content {
+    margin: 0 auto;
+    max-width: 1020px;
+  }
+
+  &__title {
+    @include m-page-section-header;
+    padding: 21vw 1rem;
+    color: $clr-primary-neutral;
+
+    @include tablet {
+      @include d-t-page-header;
+      padding: 21vw 2.25rem;
+    }
+  }
+}
