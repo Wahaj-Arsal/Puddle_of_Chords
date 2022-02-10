@@ -404,32 +404,31 @@ img {
 /** @format */
 .show {
   max-width: 1020px;
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem 1rem;
+  margin: 0 auto;
 }
 @media only screen and (min-width: 768px) {
   .show {
-    padding: 0 2.25rem;
+    padding: 0 1.125rem 1.75rem 1.125rem;
   }
 }
-.show__header {
+.show__container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: left;
   align-items: baseline;
 }
 @media only screen and (min-width: 768px) {
-  .show__header {
+  .show__container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: left;
-    padding: 0 1.125rem;
-    width: 100%;
     margin: 0 auto;
   }
 }
 @media only screen and (min-width: 1280px) {
-  .show__header {
+  .show__container {
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -437,50 +436,49 @@ img {
   }
 }
 .show__title {
-  padding: 0 0 2rem 0;
-}
-@media only screen and (min-width: 1280px) {
-  .show__title {
-    width: 40%;
-  }
-}
-.show__text {
   font-family: "Avenir-Bold";
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
 }
-.show__container {
-  color: #afafaf;
-  text-transform: uppercase;
-}
 @media only screen and (min-width: 768px) {
-  .show__container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  .show__title {
+    font-family: "Avenir-Bold";
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    padding: 3rem 1.125rem 2.25rem 1.125rem;
   }
 }
-.show__section {
+@media only screen and (min-width: 1280px) {
+  .show__title {
+    padding: 3rem 0 2.25rem 1.125rem;
+    width: 31%;
+  }
+}
+.show__list {
+  width: 100%;
+}
+.show__header {
   display: none;
+  color: #afafaf;
 }
 @media only screen and (min-width: 768px) {
-  .show__section {
-    display: unset;
-    width: 25%;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .show__content {
+  .show__header {
     display: flex;
     flex-direction: row;
-    font-family: "Avenir-Regular";
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-    font-size: 1rem;
-    font-weight: 600;
-    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.125rem;
+    height: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .show__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
   }
 }
 .show__item {
@@ -495,17 +493,36 @@ img {
   .show__item {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: space-between;
     align-items: baseline;
+    padding: 1.5rem 1.125rem;
   }
 }
 @media only screen and (min-width: 1280px) {
   .show__item {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: left;
-    width: 100%;
+  }
+}
+.show__item:hover {
+  background-color: #fafafa;
+}
+.show__content {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .show__content {
+    display: block;
+    text-align: justify;
+    font-family: "Avenir-Regular";
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 25%;
   }
 }
 .show__label {
@@ -536,6 +553,7 @@ img {
     font-weight: 700;
     font-size: 0.75rem;
     line-height: 1.25rem;
+    font-size: 0.875rem;
     width: 25%;
   }
 }
@@ -553,6 +571,7 @@ img {
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
+    font-weight: 600;
     width: 25%;
   }
 }
@@ -571,6 +590,7 @@ img {
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
+    font-weight: 600;
     width: 25%;
   }
 }
@@ -589,12 +609,13 @@ img {
   border-radius: 4px;
   border: 0;
 }
-@media only screen and (min-width: 768px) {
-  .show__btn {
-    width: 25%;
-    margin: 0;
-  }
+.show__btn--inactive {
+  visibility: hidden;
 }
+.show__btn:hover {
+  background-color: #000000;
+}
+
 /** @format */
 .hero {
   background: url("../../assets/Images/hero-bio.jpg");

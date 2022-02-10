@@ -1,76 +1,83 @@
 /** @format */
 
-const body = document.querySelector(".shows");
+import myArray from "../data/items.json" assert { type: "json" };
 
-let myArray = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pie 3 East",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-];
+const section = document.querySelector(".show");
 
 createSection(myArray);
 
 function createSection(myArray) {
-  const section = document.createElement("form");
-  section.classList.add("container");
-  body.appendChild(section);
+  const div = document.createElement("div");
+  div.classList.add("show__container");
+  section.appendChild(div);
   appendDiv(myArray);
 }
 
 function appendDiv(myArray) {
-  const container = document.querySelector(".container");
-
+  const container = document.querySelector(".show__container");
+  createTitle(container);
+  unOrderedList(container);
+  const unOL = document.querySelector(".show__list");
+  createLabelLi(unOL);
   for (let i = 0; i < myArray.length; i++) {
-    const element = createDiv(myArray[i]);
+    const element = createLi(myArray[i], unOL);
     container.appendChild(element);
   }
 }
 
-function createTitle() {
-  let div = document.createElement("div");
-  div.classList.add("show");
+function createTitle(container) {
+  let h2 = document.createElement("h2");
+  h2.classList.add("show__title");
+  h2.innerText = "Shows";
+  container.appendChild(h2);
 }
 
-function createDiv(content) {
-  //Main div
-  let div = document.createElement("div");
-  div.classList.add("show");
+function unOrderedList(container) {
+  let ul = document.createElement("ul");
+  ul.classList.add("show__list");
+  container.appendChild(ul);
+}
+
+function createLabelLi(unOL) {
+  let li = document.createElement("li");
+  li.classList.add("show__header");
+
+  let labelDate = createLabelHead("Date");
+  li.appendChild(labelDate);
+  let labelVenue = createLabelHead("Venue");
+  li.appendChild(labelVenue);
+  let labelLocation = createLabelHead("Location");
+  li.appendChild(labelLocation);
+
+  let button = document.createElement("button");
+  button.classList.add("show__btn");
+  button.classList.add("show__btn--inactive");
+  button.innerText = "Buy Tickets";
+  preventBtnDefault(button);
+
+  li.appendChild(button);
+  unOL.appendChild(li);
+}
+function createLabelHead(text) {
+  let label = document.createElement("label");
+  label.classList.add("show__content");
+  label.innerText = text;
+  return label;
+}
+
+function createLi(content, unOL) {
+  //Li Tags
+  let li = document.createElement("li");
+  li.classList.add("show__item");
 
   //Label - Date
-  createContent("Date", content.date, div, "show__date");
+  createContent("Date", content.date, li, "show__date");
 
   //Label - Venue
-  createContent("Venue", content.venue, div, "show__venue");
+  createContent("Venue", content.venue, li, "show__venue");
 
   //Label - Location
-  createContent("Location", content.location, div, "show__location");
+  createContent("Location", content.location, li, "show__location");
 
   //Button
   let button = document.createElement("button");
@@ -78,19 +85,21 @@ function createDiv(content) {
   button.innerText = "Buy Tickets";
   preventBtnDefault(button);
 
-  div.appendChild(button);
+  li.appendChild(button);
 
-  return div;
+  unOL.appendChild(li);
+
+  return unOL;
 }
 
 //function which triggers label and p tag creation
 
-function createContent(labelName, content, div, classTag) {
+function createContent(labelName, content, li, classTag) {
   const label = createLabel(labelName);
   const text = createP(content, classTag);
 
-  div.appendChild(label);
-  div.appendChild(text);
+  li.appendChild(label);
+  li.appendChild(text);
 }
 
 //creates label tags inside the div.show

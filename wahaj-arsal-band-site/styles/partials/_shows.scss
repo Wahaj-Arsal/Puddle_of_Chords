@@ -6,16 +6,15 @@
 
 .show {
   max-width: 1020px;
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem 1rem;
+  margin: 0 auto;
   @include tablet {
-    padding: 0 2.25rem;
+    padding: 0 1.125rem 1.75rem 1.125rem;
   }
-  &__header {
-    @include flex(row, left, baseline);
+  &__container {
+    @include flex(column, left, baseline);
     @include tablet {
       @include flex(column, space-evenly, left);
-      padding: 0 1.125rem; //24px 18px
-      width: 100%;
       margin: 0 auto;
     }
     @include desktop {
@@ -23,36 +22,33 @@
     }
   }
   &__title {
-    padding: 0 0 2rem 0;
-    @include desktop {
-      width: 40%;
-    }
-  }
-  &__text {
     @include m-page-section-header;
-  }
-  &__container {
-    color: $clr-primary-light;
-    text-transform: uppercase;
     @include tablet {
-      @include flex(row, null, null);
-      width: 100%;
+      @include d-t-section-header;
+      padding: 3rem 1.125rem 2.25rem 1.125rem;
+    }
+    @include desktop {
+      padding: 3rem 0 2.25rem 1.125rem;
+      width: 31%;
     }
   }
-  &__section {
+
+  &__list {
+    width: 100%;
+    @include tablet {
+    }
+  }
+
+  &__header {
     display: none;
+    color: $clr-primary-light;
     @include tablet {
-      display: unset;
-      width: 25%;
+      @include flex(row, space-between, center);
+      padding: 0 1.125rem;
+      height: 1.5rem;
     }
-  }
-  &__content {
-    @include tablet {
-      @include flex(row, null, null);
-      @include d-t-body-copy;
-      font-size: 1rem;
-      font-weight: 600;
-      width: 100%;
+    @include desktop {
+      @include flex(row, space-between, left);
     }
   }
   &__item {
@@ -60,13 +56,25 @@
     border-bottom: 2px solid $clr-secondary-light;
     padding: 1rem 0;
     @include tablet {
-      @include flex(row, left, baseline);
-      // padding: 1.5rem 1.125rem; //24px 18px
+      @include flex(row, space-between, baseline);
+      padding: 1.5rem 1.125rem;
     }
     @include desktop {
-      @include flex(row, flex-end, left);
-      width: 100%;
-      // margin: 0 30%;
+      @include flex(row, space-between, left);
+    }
+    &:hover {
+      background-color: $clr-secondary-neutral;
+    }
+  }
+  &__content {
+    display: none;
+    @include tablet {
+      display: block;
+      text-align: justify;
+      @include d-t-body-copy;
+      font-size: 1rem;
+      font-weight: 600;
+      width: 25%;
     }
   }
   &__label {
@@ -84,9 +92,8 @@
     justify-self: center;
     @include tablet {
       @include d-t-labels-buttons;
+      font-size: 0.875rem;
       width: 25%;
-    }
-    @include desktop {
     }
   }
   &__venue {
@@ -95,7 +102,7 @@
     padding: 0 0 0.25rem 0;
     @include tablet {
       @include d-t-body-copy;
-      // font-weight: 600;
+      font-weight: 600;
       width: 25%;
     }
   }
@@ -106,7 +113,7 @@
     padding: 0 0 0.25rem 0;
     @include tablet {
       @include d-t-body-copy;
-      // font-weight: 600;
+      font-weight: 600;
       width: 25%;
     }
   }
@@ -121,11 +128,11 @@
     text-transform: uppercase;
     border-radius: 4px; //required
     border: 0;
-    @include tablet {
-      width: 25%;
-      margin: 0;
+    &--inactive {
+      visibility: hidden;
     }
-    @include desktop {
+    &:hover {
+      background-color: $clr-secondary-dark;
     }
   }
 }
