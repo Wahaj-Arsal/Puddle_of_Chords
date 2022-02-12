@@ -14,16 +14,19 @@
   &__content {
     margin: 0 auto;
     max-width: 1020px;
+    padding: 21vw 1rem;
   }
 
   &__title {
     @include m-page-section-header;
-    padding: 21vw 1rem;
     color: $clr-primary-neutral;
-
     @include tablet {
       @include d-t-page-header;
       padding: 21vw 2.25rem;
     }
+  }
+  &__sub-title {
+    @include m-sub-header;
+    color: $clr-primary-neutral;
   }
 }

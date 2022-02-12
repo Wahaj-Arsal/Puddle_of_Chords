@@ -622,13 +622,13 @@ img {
 .hero__content {
   margin: 0 auto;
   max-width: 1020px;
+  padding: 21vw 1rem;
 }
 .hero__title {
   font-family: "Avenir-Bold";
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
-  padding: 21vw 1rem;
   color: #ffffff;
 }
 @media only screen and (min-width: 768px) {
@@ -639,6 +639,13 @@ img {
     line-height: 4.25rem;
     padding: 21vw 2.25rem;
   }
+}
+.hero__sub-title {
+  font-family: "Avenir-Demi";
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  color: #ffffff;
 }
 
 /** @format *//*# sourceMappingURL=bio.css.map */
