@@ -106,7 +106,6 @@ function displayComment(myArray) {
     commentText.appendChild(element);
     if (display.children.length > 0) {
       commentText.prepend(element);
-      // console.log("I'M HERE");
     } else {
       commentText.appendChild(element);
     }
@@ -218,6 +217,5 @@ function newMoment(commentDate) {
   let duration = moment.duration(-y.diff(x)).humanize(true);
   // var durationYears = duration.asYears();
 
-  console.log("This is y " + duration);
   return duration;
 }

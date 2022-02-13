@@ -25,6 +25,11 @@ img {
   padding: 0;
 }
 
+li,
+button {
+  cursor: pointer;
+}
+
 textarea {
   resize: none;
 }
@@ -499,7 +504,7 @@ textarea {
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
-    padding: 1.5rem 1.125rem;
+    padding: 1rem 1.125rem;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -510,11 +515,11 @@ textarea {
     align-items: left;
   }
 }
+.show__item--active {
+  background-color: #e1e1e1;
+}
 .show__item:hover {
   background-color: #fafafa;
-}
-.show__item:active {
-  background-color: #e1e1e1;
 }
 .show__content {
   display: none;

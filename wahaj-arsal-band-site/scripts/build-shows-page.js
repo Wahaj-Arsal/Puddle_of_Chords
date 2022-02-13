@@ -118,8 +118,26 @@ function createP(text, className) {
   return pTag;
 }
 
+const showItem = document.querySelectorAll(".show__item");
+
 function preventBtnDefault(button) {
   button.addEventListener("click", (e) => {
     e.preventDefault();
   });
 }
+
+showItem.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("show__label") ||
+      e.target.classList.contains("show__date") ||
+      e.target.classList.contains("show__venue") ||
+      e.target.classList.contains("show__location")
+    ) {
+      let parent = e.target.parentElement;
+      parent.classList.toggle("show__item--active");
+    } else {
+      e.target.classList.toggle("show__item--active");
+    }
+  });
+});

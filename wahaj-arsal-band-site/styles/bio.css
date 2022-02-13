@@ -25,6 +25,11 @@ img {
   padding: 0;
 }
 
+li,
+button {
+  cursor: pointer;
+}
+
 textarea {
   resize: none;
 }
@@ -600,7 +605,7 @@ textarea {
   }
 }
 .gallery__img {
-  transition: all 1s ease-in;
+  transition: all 1s ease-in-out;
   width: 100%;
   filter: grayscale(100%);
   padding: 0.5rem 0;
@@ -612,7 +617,7 @@ textarea {
 }
 .gallery__img:hover {
   filter: grayscale(0%);
-  transition: all 0.5s ease-out;
+  transition: all 1s ease-in-out;
 }
 
 .display {
@@ -688,17 +693,30 @@ textarea {
   padding: 0 1rem;
 }
 .display__label {
-  font-family: "Avenir-Bold";
-  font-weight: 700;
-  font-size: 0.625rem;
-  line-height: 1.25rem;
+  font-family: "Avenir-Regular";
+  font-weight: 400;
+  font-size: 0.813rem;
+  line-height: 1.125rem;
   color: #afafaf;
-  font-weight: 600;
-  padding-bottom: 4px;
+  font-weight: 400;
+  padding-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 768px) {
+  .display__label {
+    font-family: "Avenir-Regular";
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
 }
 .display__name, .display__comment {
+  font-family: "Avenir-Regular";
+  font-weight: 400;
+  font-size: 0.813rem;
+  line-height: 1.125rem;
   min-height: 2.25rem;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   border: 1px solid #e1e1e1;
   background-color: #fafafa;
   padding: 0.75rem;
@@ -706,6 +724,10 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .display__name, .display__comment {
+    font-family: "Avenir-Regular";
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
     min-height: 3rem;
     padding: 1rem;
   }
@@ -716,8 +738,17 @@ textarea {
 .display__name--error, .display__comment--error {
   border: 1px solid #d22d2d;
 }
+.display__name::-moz-placeholder, .display__comment::-moz-placeholder {
+  color: #323232;
+}
+.display__name:-ms-input-placeholder, .display__comment:-ms-input-placeholder {
+  color: #323232;
+}
+.display__name::placeholder, .display__comment::placeholder {
+  color: #323232;
+}
 .display__comment {
-  height: 5rem;
+  height: 6rem;
   vertical-align: text-top;
 }
 .display__btn {
@@ -740,10 +771,10 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .display__btn {
-    font-family: "Avenir-Bold";
-    font-weight: 700;
-    font-size: 0.75rem;
-    line-height: 1.25rem;
+    font-family: "Avenir-Regular";
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
     width: 25%;
     align-self: flex-end;
   }

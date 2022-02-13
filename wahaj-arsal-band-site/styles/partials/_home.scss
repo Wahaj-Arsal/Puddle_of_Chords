@@ -152,7 +152,7 @@
     }
   }
   &__img {
-    transition: all 1s ease-in;
+    transition: all 1s ease-in-out;
     width: 100%;
     filter: grayscale(100%);
     padding: 0.5rem 0; //1rem total, 0.5 per picture
@@ -162,7 +162,7 @@
     }
     &:hover {
       filter: grayscale(0%);
-      transition: all 0.5s ease-out;
+      transition: all 1s ease-in-out;
     }
   }
 }
@@ -215,20 +215,27 @@
     padding: 0 1rem;
   }
   &__label {
-    @include m-labels-buttons;
+    @include m-body-footer-copy;
     color: $clr-primary-light;
-    font-weight: 600;
-    padding-bottom: 4px;
+    font-weight: 400;
+    padding-bottom: 0.25rem;
+    text-transform: uppercase;
+    // font-weight: 600;
+    @include tablet {
+      @include d-t-body-copy;
+    }
   }
   &__name,
   &__comment {
+    @include m-body-footer-copy;
     min-height: 2.25rem;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     border: 1px solid $clr-secondary-light;
     background-color: $clr-secondary-neutral;
     padding: 0.75rem;
     margin: 0 0 1rem 0;
     @include tablet {
+      @include d-t-body-copy;
       min-height: 3rem;
       padding: 1rem;
     }
@@ -238,10 +245,13 @@
     &--error {
       border: 1px solid #d22d2d;
     }
+    &::placeholder {
+      color: $clr-primary-dark;
+    }
   }
 
   &__comment {
-    height: 5rem;
+    height: 6rem;
     vertical-align: text-top;
   }
 
@@ -260,8 +270,7 @@
       background-color: $clr-secondary-dark;
     }
     @include tablet {
-      // @include flex(row, right, center);
-      @include d-t-labels-buttons;
+      @include d-t-body-copy;
       width: 25%;
       align-self: flex-end;
     }
