@@ -25,6 +25,10 @@ img {
   padding: 0;
 }
 
+textarea {
+  resize: none;
+}
+
 /** @format */
 @font-face {
   font-family: "Avenir-Regular";
@@ -621,7 +625,7 @@ img {
 
 /** @format */
 .hero {
-  background: url("../../assets/Images/hero-shows.jpg");
+  background: url("../assets/Images/hero-shows.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

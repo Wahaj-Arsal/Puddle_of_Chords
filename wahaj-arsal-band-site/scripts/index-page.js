@@ -1,59 +1,39 @@
 /** @format */
 
-// import { createP } from "./build-shows-page";
-
-const commentName = document.querySelector(".comment__name-input");
-const commentText = document.querySelector(".comment__text-input");
-const commentBtn = document.querySelector(".comment__btn");
-
-const displayReviews = document.querySelector(".display__reviews");
-
-const display = document.querySelector(".display");
-
 let myArray = [
   {
-    name: "Wahaj Arsal",
-    comment: "This was amazing!",
+    name: "Miles Acosta",
+    comment:
+      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+    date: "12/20/2020",
   },
   {
-    name: "John Doe",
-    comment: "This was good!",
+    name: "Emilie Beach",
+    comment:
+      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
+    date: "01/09/2021",
   },
   {
-    name: "Doe John",
-    comment: "Amazing!",
+    name: "Connor Walton",
+    comment:
+      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+    date: "02/17/2021",
   },
 ];
 
-loadArray(myArray);
+const display = document.querySelector(".display");
+// const commentText = document.querySelector(".comment");
+const commentText = document.querySelector(".comment");
 
-commentBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  pushObject(commentName, commentText);
-});
+createContent(display);
 
-function pushObject(name, comment) {
-  let myObj = {};
-  myObj.name = name.value;
-  myObj.comment = comment.value;
-  myArray.push(myObj);
-  loadArray(myArray);
-  // createHTML(myObj);
-}
+function createContent(display) {
+  let title = createTitle(display);
 
-function loadArray(myArray) {
-  display.innerHTML = "";
-  createTitle(display);
-  createContent(display);
-  for (let i = 0; i < myArray.length; i++) {
-    const element = createHTML(myArray[i]);
-    if (display.children.length > 0) {
-      const displayComment = document.querySelector(".display__comment");
-      display.insertBefore(element, displayComment);
-    } else {
-      display.appendChild(element);
-    }
-  }
+  let div = document.createElement("div");
+  div.classList.add("display__content");
+  display.appendChild(div);
+  createSubSections();
 }
 
 function createTitle(display) {
@@ -63,17 +43,12 @@ function createTitle(display) {
   display.appendChild(h2);
 }
 
-function createContent(display) {
-  let div = document.createElement("div");
-  div.classList.add("display__content");
-  display.appendChild(div);
-  createSubSections(div);
-}
-
-function createSubSections(_div) {
+function createSubSections() {
   const displayContent = document.querySelector(".display__content");
   let picture = createPicture();
+  let form = createForm();
   displayContent.appendChild(picture);
+  displayContent.appendChild(form);
 }
 
 function createPicture() {
@@ -82,17 +57,112 @@ function createPicture() {
   return img;
 }
 
+function createForm() {
+  let form = document.createElement("form");
+  form.classList.add("display__form");
+
+  const nameTitle = createLabel("Name", "display__label");
+  let nameInput = createInput(
+    "display__name",
+    "placeholder",
+    "Enter your name"
+  );
+  form.appendChild(nameTitle);
+  form.appendChild(nameInput);
+
+  const commentTitle = createLabel("Comment", "display__label");
+  let commentInput = createTextAreaInner(
+    "display__comment",
+    "placeholder",
+    "Add a new comment"
+  );
+  form.appendChild(commentTitle);
+  form.appendChild(commentInput);
+
+  let commentBtn = document.createElement("button");
+  commentBtn.classList.add("display__btn");
+  commentBtn.setAttribute("type", "button");
+  commentBtn.innerText = "Comment";
+  form.appendChild(commentBtn);
+  // preventBtnDefault(commentBtn);
+  return form;
+}
+
+displayComment(myArray);
+
+function pushObject(name, comment, commentText) {
+  let myObj = {};
+  myObj.name = name.value;
+  myObj.comment = comment.value;
+  myObj.date = getDate();
+  myArray.push(myObj);
+  displayComment(myArray, commentText);
+}
+
+function displayComment(myArray) {
+  commentText.innerHTML = "";
+  for (let i = 0; i < myArray.length; i++) {
+    const element = createHTML(myArray[i]);
+    commentText.appendChild(element);
+    if (display.children.length > 0) {
+      commentText.prepend(element);
+      // console.log("I'M HERE");
+    } else {
+      commentText.appendChild(element);
+    }
+  }
+}
+
 function createHTML(comment) {
   const element = document.createElement("div");
-  element.classList.add("display__comment");
+  element.classList.add("comment__tile");
 
-  const title = createLabel(comment.name, "display__name");
-  const text = createP(comment.comment, "display__text");
+  const image = document.createElement("div");
+  image.classList.add("comment__picture");
 
-  element.appendChild(title);
-  element.appendChild(text);
+  const commentContent = document.createElement("div");
+  commentContent.classList.add("comment__content");
+
+  const commentHeader = createDiv("comment__header");
+  const commentName = createP("comment__name", comment.name);
+
+  let anotherMoment = newMoment(comment.date);
+
+  const commentDate = createP("comment__date", anotherMoment);
+  const commentComment = createP("comment__text", comment.comment);
+
+  element.appendChild(image);
+  element.appendChild(commentContent);
+
+  commentContent.appendChild(commentHeader);
+  commentContent.appendChild(commentComment);
+
+  commentHeader.appendChild(commentName);
+  commentHeader.appendChild(commentDate);
 
   return element;
+}
+
+function createDiv(className) {
+  let div = document.createElement("div");
+  div.classList.add(className);
+  return div;
+}
+
+function createTextAreaInner(className, placeHolderType, placeHolderText) {
+  let textArea = document.createElement("textarea");
+  textArea.classList.add(className);
+  textArea.setAttribute(placeHolderType, placeHolderText);
+  // textArea.innerText = content;
+  return textArea;
+}
+
+//creates the P tags inside the div.show
+function createP(className, text) {
+  let pTag = document.createElement("p");
+  pTag.classList.add(className);
+  pTag.innerText = text;
+  return pTag;
 }
 
 function createLabel(comment, className) {
@@ -101,10 +171,53 @@ function createLabel(comment, className) {
   title.innerText = comment;
   return title;
 }
-//creates the P tags inside the div.show
-function createP(text, className) {
-  let pTag = document.createElement("p");
-  pTag.classList.add(className);
-  pTag.innerText = text;
-  return pTag;
+
+function createInput(className, placeHolderType, placeHolderText) {
+  let input = document.createElement("input");
+  input.classList.add(className);
+  input.setAttribute(placeHolderType, placeHolderText);
+  return input;
+}
+
+const commentBtn = document.querySelector(".display__btn");
+const commentInputName = document.querySelector(".display__name");
+const commentInputText = document.querySelector(".display__comment");
+
+commentBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (commentInputName.value == "" || commentInputText.value == "") {
+    if (commentInputName.value == "" && commentInputText.value == "") {
+      commentInputName.classList.add("display__name--error");
+      commentInputText.classList.add("display__comment--error");
+    } else if (commentInputText.value == "") {
+      commentInputText.classList.add("display__comment--error");
+      commentInputName.classList.remove("display__name--error");
+    } else {
+      commentInputText.classList.remove("display__comment--error");
+      commentInputName.classList.add("display__name--error");
+    }
+  } else {
+    commentInputName.classList.remove("display__name--error");
+    commentInputText.classList.remove("display__comment--error");
+    pushObject(commentInputName, commentInputText);
+    commentInputName.value = null;
+    commentInputText.value = null;
+  }
+});
+
+//date
+
+function getDate() {
+  var currentdate = new moment();
+  return currentdate;
+}
+function newMoment(commentDate) {
+  let x = commentDate;
+  let y = new moment();
+
+  let duration = moment.duration(-y.diff(x)).humanize(true);
+  // var durationYears = duration.asYears();
+
+  console.log("This is y " + duration);
+  return duration;
 }
