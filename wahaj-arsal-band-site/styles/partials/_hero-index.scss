@@ -12,21 +12,22 @@
   box-shadow: inset 0 0 0 1000px rgba(50, 50, 50, 0.5); //BandSite-Black color changed to rgb.
 
   &__content {
+    @include flex(column, left, left);
     margin: 0 auto;
     max-width: 1020px;
     padding: 21vw 1rem;
+    @include tablet {
+      padding: 21vw 2.25rem;
+    }
   }
 
   &__title {
     @include m-page-section-header;
     color: $clr-primary-neutral;
+    padding: 1rem 0;
     @include tablet {
       @include d-t-page-header;
-      padding: 21vw 2.25rem;
+      padding: 1rem 0 2rem 0;
     }
-  }
-  &__sub-title {
-    @include m-sub-header;
-    color: $clr-primary-neutral;
   }
 }

@@ -611,6 +611,85 @@ img {
   transition: all 0.5s ease-out;
 }
 
+.comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  padding: 0 1rem;
+}
+.comment__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: left;
+  border-bottom: 2px solid #e1e1e1;
+  padding: 1rem 0;
+}
+.comment__picture {
+  width: 20%;
+  background-image: url("../../assets/Images/Mohan-muruge.jpg");
+  background-position: -4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 36px;
+  max-height: 36px;
+  border-radius: 50%;
+  margin-top: 26px;
+}
+.comment__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  width: 100%;
+  padding: 0 1rem;
+}
+.comment__label {
+  font-family: "Avenir-Bold";
+  font-weight: 700;
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  color: #afafaf;
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+.comment__input {
+  min-height: 36px;
+  border-radius: 4px;
+  border: 1px solid #e1e1e1;
+  background-color: #fafafa;
+  padding: 12px;
+  margin: 0 0 1rem 0;
+}
+@media only screen and (min-width: 768px) {
+  .comment__input {
+    min-height: 48px;
+    padding: 16px;
+  }
+}
+.comment__input:active {
+  border: 1px solid #323232;
+}
+.comment__btn {
+  font-family: "Avenir-Demi";
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  background-color: #323232;
+  color: #ffffff;
+  height: 2.5rem;
+  min-width: 9.375rem;
+  padding: 0 2rem;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 0;
+}
+.comment__btn:hover {
+  background-color: #000000;
+}
+
 /** @format */
 .hero {
   background: url("../../assets/Images/hero-bio.jpg");
@@ -620,9 +699,18 @@ img {
   box-shadow: inset 0 0 0 1000px rgba(50, 50, 50, 0.5);
 }
 .hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
   margin: 0 auto;
   max-width: 1020px;
   padding: 21vw 1rem;
+}
+@media only screen and (min-width: 768px) {
+  .hero__content {
+    padding: 21vw 2.25rem;
+  }
 }
 .hero__title {
   font-family: "Avenir-Bold";
@@ -630,6 +718,7 @@ img {
   font-size: 1.5rem;
   line-height: 2rem;
   color: #ffffff;
+  padding: 1rem 0;
 }
 @media only screen and (min-width: 768px) {
   .hero__title {
@@ -637,15 +726,8 @@ img {
     font-weight: 700;
     font-size: 3.75rem;
     line-height: 4.25rem;
-    padding: 21vw 2.25rem;
+    padding: 1rem 0 2rem 0;
   }
-}
-.hero__sub-title {
-  font-family: "Avenir-Demi";
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.375rem;
-  color: #ffffff;
 }
 
 /** @format *//*# sourceMappingURL=bio.css.map */

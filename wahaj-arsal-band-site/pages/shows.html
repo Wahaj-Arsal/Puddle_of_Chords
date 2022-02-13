@@ -11,6 +11,18 @@
     <title>Band Site - Shows</title>
   </head>
   <body class="start">
+    <style>
+      /* .hero__music {
+        width: 100%;
+        height: 120px;
+      } */
+      /* @media only screen and (min-width: 768) {
+        .hero__music {
+          width: 60%;
+          height: 150px;
+        }
+      } */
+    </style>
     <header>
       <!-- NAVBAR -->
       <nav class="navbar">
@@ -50,17 +62,22 @@
     <!-- ****** HERO ****** -->
     <section class="hero">
       <div class="hero__content">
-        <h3 class="hero__sub-title">Beautiful Beasts Album</h3>
-        <h1 class="hero__title">Queen of Yellow x <br />For The Stings</h1>
-        <iframe
-          width="100%"
-          height="140"
-          scrolling="no"
-          frameborder="yes"
-          allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/39882279&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-          class="hero__music"
-        ></iframe>
+        <div class="hero__text">
+          <h3 class="hero__sub-title">Beautiful Beasts Album</h3>
+        </div>
+        <div class="hero__audio">
+          <h1 class="hero__title">
+            Queen of Yellow x <br />
+            For The Stings
+          </h1>
+          <iframe
+            class="hero__music"
+            scrolling="yes"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/39882279&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+          ></iframe>
+        </div>
       </div>
     </section>
 

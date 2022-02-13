@@ -8,6 +8,8 @@ const commentBtn = document.querySelector(".comment__btn");
 
 const displayReviews = document.querySelector(".display__reviews");
 
+const display = document.querySelector(".display");
+
 let myArray = [
   {
     name: "Wahaj Arsal",
@@ -40,23 +42,51 @@ function pushObject(name, comment) {
 }
 
 function loadArray(myArray) {
-  displayReviews.innerHTML = "";
+  display.innerHTML = "";
+  createTitle(display);
+  createContent(display);
   for (let i = 0; i < myArray.length; i++) {
     const element = createHTML(myArray[i]);
-    if (displayReviews.children.length > 0) {
+    if (display.children.length > 0) {
       const displayComment = document.querySelector(".display__comment");
-      displayReviews.insertBefore(element, displayComment);
+      display.insertBefore(element, displayComment);
     } else {
-      displayReviews.appendChild(element);
+      display.appendChild(element);
     }
   }
+}
+
+function createTitle(display) {
+  let h2 = document.createElement("h2");
+  h2.classList.add("display__title");
+  h2.innerText = "Join the Conversation";
+  display.appendChild(h2);
+}
+
+function createContent(display) {
+  let div = document.createElement("div");
+  div.classList.add("display__content");
+  display.appendChild(div);
+  createSubSections(div);
+}
+
+function createSubSections(_div) {
+  const displayContent = document.querySelector(".display__content");
+  let picture = createPicture();
+  displayContent.appendChild(picture);
+}
+
+function createPicture() {
+  let img = document.createElement("div");
+  img.classList.add("display__picture");
+  return img;
 }
 
 function createHTML(comment) {
   const element = document.createElement("div");
   element.classList.add("display__comment");
 
-  const title = createTitle(comment.name, "display__name");
+  const title = createLabel(comment.name, "display__name");
   const text = createP(comment.comment, "display__text");
 
   element.appendChild(title);
@@ -65,7 +95,7 @@ function createHTML(comment) {
   return element;
 }
 
-function createTitle(comment, className) {
+function createLabel(comment, className) {
   let title = document.createElement("label");
   title.classList.add(className);
   title.innerText = comment;
