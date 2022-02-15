@@ -219,3 +219,46 @@ function newMoment(commentDate) {
 
   return duration;
 }
+
+const ACCESS_API_KEY = "?api_key=9b6a5a60-a04e-4c65-85dd-71b62986ca6e";
+const API_URL = "https://project-1-api.herokuapp.com/";
+
+// axios
+//   .get(usersURL)
+//   .then((response) => {
+//     resPage.innerText = response.data.page;
+//     resTotalPages.innerText = response.data.total_pages;
+//     console.log(response);
+//     myArray = reponse.data.page;
+//     console.log(myArray);
+//     console.log(response.data.page);
+//     console.log(response.data.total_pages);
+
+//     response.forEach((element) => {
+//       console.log(element.data);
+//     });
+//   })
+//   .catch((err) => console.log("MY API Error: ", err));
+
+getComments();
+getShows();
+
+function getComments() {
+  axios
+    .get(API_URL + "comments" + ACCESS_API_KEY)
+    .then((response) => {
+      // itemsArray.push(response.data[0]);
+      console.log(response.data);
+    })
+    .catch((err) => console.log("My API Error: ", err));
+}
+
+function getShows() {
+  axios
+    .get(API_URL + "showdates" + ACCESS_API_KEY)
+    .then((response) => {
+      // itemsArray.push(response.data[0]);
+      console.log(response.data);
+    })
+    .catch((err) => console.log("My API Error: ", err));
+}
