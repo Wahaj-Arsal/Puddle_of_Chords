@@ -1,10 +1,11 @@
 /** @format */
 
-import myArray from "../data/items.json" assert { type: "json" };
+// import myArray from "../data/items.json" assert { type: "json" };
+import { API_URL, ACCESS_API_KEY, createP } from "./helper-functions.js";
+
+let showsArray = [];
 
 const section = document.querySelector(".show");
-
-createSection(myArray);
 
 function createSection(myArray) {
   const div = document.createElement("div");
@@ -69,12 +70,12 @@ function createLi(content, unOL) {
   //Li Tags
   let li = document.createElement("li");
   li.classList.add("show__item");
-
+  console.log(content);
   //Label - Date
   createContent("Date", content.date, li, "show__date");
 
   //Label - Venue
-  createContent("Venue", content.venue, li, "show__venue");
+  createContent("Venue", content.place, li, "show__venue");
 
   //Label - Location
   createContent("Location", content.location, li, "show__location");
@@ -96,7 +97,7 @@ function createLi(content, unOL) {
 
 function createContent(labelName, content, li, classTag) {
   const label = createLabel(labelName);
-  const text = createP(content, classTag);
+  const text = createP(classTag, content);
 
   li.appendChild(label);
   li.appendChild(text);
@@ -111,12 +112,12 @@ function createLabel(text) {
 }
 
 //creates the P tags inside the div.show
-function createP(text, className) {
-  let pTag = document.createElement("p");
-  pTag.classList.add(className);
-  pTag.innerText = text;
-  return pTag;
-}
+// function createP(className, text) {
+//   let pTag = document.createElement("p");
+//   pTag.classList.add(className);
+//   pTag.innerText = text;
+//   return pTag;
+// }
 
 const showItem = document.querySelectorAll(".show__item");
 
@@ -141,3 +142,17 @@ showItem.forEach((item) => {
     }
   });
 });
+
+getShows();
+
+function getShows() {
+  axios
+    .get(API_URL + "showdates" + ACCESS_API_KEY)
+    .then((response) => {
+      for (let i = 0; i < response.data.length; i++) {
+        showsArray.push(response.data[i]);
+      }
+      createSection(showsArray);
+    })
+    .catch((err) => console.log("My API Error: ", err));
+}

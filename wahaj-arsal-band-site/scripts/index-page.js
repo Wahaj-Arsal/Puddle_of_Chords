@@ -1,35 +1,18 @@
 /** @format */
 
-let myArray = [
-  {
-    name: "Miles Acosta",
-    comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    date: "12/20/2020",
-  },
-  {
-    name: "Emilie Beach",
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    date: "01/09/2021",
-  },
-  {
-    name: "Connor Walton",
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-    date: "02/17/2021",
-  },
-];
+import { API_URL, ACCESS_API_KEY, createP } from "./helper-functions.js";
 
 const display = document.querySelector(".display");
-// const commentText = document.querySelector(".comment");
 const commentText = document.querySelector(".comment");
 
+let commentArray = [];
+
 createContent(display);
+getCommentData();
 
+// ******** CREATE FORM START ********
 function createContent(display) {
-  let title = createTitle(display);
-
+  createTitle(display);
   let div = document.createElement("div");
   div.classList.add("display__content");
   display.appendChild(div);
@@ -88,20 +71,24 @@ function createForm() {
   return form;
 }
 
-displayComment(myArray);
+// ******** CREATE FORM END ********
 
-function pushObject(name, comment, commentText) {
+// ******** RENDER COMMENTS START ********
+
+function pushObject(name, comment) {
   let myObj = {};
   myObj.name = name.value;
   myObj.comment = comment.value;
-  myObj.date = getDate();
-  myArray.push(myObj);
-  displayComment(myArray, commentText);
+  myObj.timestamp = new Date();
+  commentArray.push(myObj);
+  displayComment(commentArray);
 }
 
 function displayComment(myArray) {
+  console.log(myArray.length);
   commentText.innerHTML = "";
   for (let i = 0; i < myArray.length; i++) {
+    // console.log(myArray[i]);
     const element = createHTML(myArray[i]);
     commentText.appendChild(element);
     if (display.children.length > 0) {
@@ -113,6 +100,7 @@ function displayComment(myArray) {
 }
 
 function createHTML(comment) {
+  // console.log(comment);
   const element = document.createElement("div");
   element.classList.add("comment__tile");
 
@@ -125,9 +113,11 @@ function createHTML(comment) {
   const commentHeader = createDiv("comment__header");
   const commentName = createP("comment__name", comment.name);
 
-  let anotherMoment = newMoment(comment.date);
+  // let anotherMoment = newMoment(comment.date);
 
-  const commentDate = createP("comment__date", anotherMoment);
+  let date = getDate(comment.timestamp);
+
+  const commentDate = createP("comment__date", date);
   const commentComment = createP("comment__text", comment.comment);
 
   element.appendChild(image);
@@ -157,12 +147,12 @@ function createTextAreaInner(className, placeHolderType, placeHolderText) {
 }
 
 //creates the P tags inside the div.show
-function createP(className, text) {
-  let pTag = document.createElement("p");
-  pTag.classList.add(className);
-  pTag.innerText = text;
-  return pTag;
-}
+// function createP(className, text) {
+//   let pTag = document.createElement("p");
+//   pTag.classList.add(className);
+//   pTag.innerText = text;
+//   return pTag;
+// }
 
 function createLabel(comment, className) {
   let title = document.createElement("label");
@@ -206,22 +196,21 @@ commentBtn.addEventListener("click", (e) => {
 
 //date
 
-function getDate() {
-  var currentdate = new moment();
-  return currentdate;
+function getDate(date) {
+  // var currentDate = new moment();
+  let currentDate = new Date(date);
+  // console.log(currentDate);
+  return currentDate;
 }
-function newMoment(commentDate) {
-  let x = commentDate;
-  let y = new moment();
+// function newMoment(commentDate) {
+//   let x = commentDate;
+//   let y = new moment();
 
-  let duration = moment.duration(-y.diff(x)).humanize(true);
-  // var durationYears = duration.asYears();
+//   let duration = moment.duration(-y.diff(x)).humanize(true);
+//   // var durationYears = duration.asYears();
 
-  return duration;
-}
-
-const ACCESS_API_KEY = "?api_key=9b6a5a60-a04e-4c65-85dd-71b62986ca6e";
-const API_URL = "https://project-1-api.herokuapp.com/";
+//   return duration;
+// }
 
 // axios
 //   .get(usersURL)
@@ -240,25 +229,19 @@ const API_URL = "https://project-1-api.herokuapp.com/";
 //   })
 //   .catch((err) => console.log("MY API Error: ", err));
 
-getComments();
-getShows();
+// getShows();
 
-function getComments() {
+//function gets the comments data as an object and stores it in myArray. Then calls function displayComment to cycle through and render.
+function getCommentData() {
   axios
     .get(API_URL + "comments" + ACCESS_API_KEY)
     .then((response) => {
-      // itemsArray.push(response.data[0]);
-      console.log(response.data);
+      for (let i = 0; i < response.data.length; i++) {
+        commentArray.push(response.data[i]);
+      }
+      displayComment(commentArray);
     })
     .catch((err) => console.log("My API Error: ", err));
 }
 
-function getShows() {
-  axios
-    .get(API_URL + "showdates" + ACCESS_API_KEY)
-    .then((response) => {
-      // itemsArray.push(response.data[0]);
-      console.log(response.data);
-    })
-    .catch((err) => console.log("My API Error: ", err));
-}
+// ******** RENDER COMMENTS END ********
