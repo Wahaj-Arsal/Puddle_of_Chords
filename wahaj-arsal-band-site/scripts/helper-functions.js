@@ -11,3 +11,24 @@ export function createP(className, text) {
   pTag.innerText = text;
   return pTag;
 }
+
+export function createLabel(comment, className) {
+  let label = document.createElement("label");
+  label.classList.add(className);
+  label.innerText = comment;
+  return label;
+}
+
+export function createLabelHead(text) {
+  let label = document.createElement("label");
+  label.classList.add("show__content");
+  label.innerText = text;
+  return label;
+}
+
+export function createInput(className, placeHolderType, placeHolderText) {
+  let input = document.createElement("input");
+  input.classList.add(className);
+  input.setAttribute(placeHolderType, placeHolderText);
+  return input;
+}

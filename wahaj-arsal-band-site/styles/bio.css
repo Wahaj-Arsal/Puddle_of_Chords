@@ -788,7 +788,6 @@ textarea {
   padding: 0 1rem 1rem 1rem;
   margin: 0 auto;
   max-width: 1020px;
-  max-height: 1020px;
 }
 @media only screen and (min-width: 768px) {
   .comment {
@@ -895,6 +894,16 @@ textarea {
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
+}
+.comment__icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  padding: 1rem 0;
+}
+.comment__img {
+  padding: 0 0 0 1rem;
 }
 
 /** @format */

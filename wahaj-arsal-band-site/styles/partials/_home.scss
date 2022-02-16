@@ -282,7 +282,7 @@
   padding: 0 1rem 1rem 1rem;
   margin: 0 auto;
   max-width: 1020px;
-  max-height: 1020px;
+  // max-height: 1020px;
   @include tablet {
     @include d-t-body-copy;
     padding: 0 5.75rem; //36px and 56px combined
@@ -355,5 +355,12 @@
     @include tablet {
       @include d-t-body-copy;
     }
+  }
+  &__icons {
+    @include flex(row, right, center);
+    padding: 1rem 0;
+  }
+  &__img {
+    padding: 0 0 0 1rem;
   }
 }

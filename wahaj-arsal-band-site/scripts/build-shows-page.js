@@ -1,11 +1,34 @@
 /** @format */
 
 // import myArray from "../data/items.json" assert { type: "json" };
-import { API_URL, ACCESS_API_KEY, createP } from "./helper-functions.js";
+import {
+  API_URL,
+  ACCESS_API_KEY,
+  createP,
+  createLabel,
+  createLabelHead,
+} from "./helper-functions.js";
 
 let showsArray = [];
 
 const section = document.querySelector(".show");
+
+getShows();
+// clickListener();
+// createSection(myArray);
+
+function getShows() {
+  axios
+    .get(API_URL + "showdates" + ACCESS_API_KEY)
+    .then((response) => {
+      for (let i = 0; i < response.data.length; i++) {
+        showsArray.push(response.data[i]);
+      }
+      createSection(showsArray);
+      clickListener();
+    })
+    .catch((err) => console.log("My API Error: ", err));
+}
 
 function createSection(myArray) {
   const div = document.createElement("div");
@@ -59,20 +82,27 @@ function createLabelLi(unOL) {
   li.appendChild(button);
   unOL.appendChild(li);
 }
-function createLabelHead(text) {
-  let label = document.createElement("label");
-  label.classList.add("show__content");
-  label.innerText = text;
-  return label;
-}
 
 function createLi(content, unOL) {
   //Li Tags
   let li = document.createElement("li");
   li.classList.add("show__item");
-  console.log(content);
+  // console.log(content);
+
+  //Create Date Format
+  let options = {
+    day: "2-digit",
+    weekday: "short",
+    month: "short",
+    year: "numeric",
+  };
+  options.month.slice(4);
+  let newDate = new Date(parseInt(content.date)).toLocaleDateString(
+    "en-UK",
+    options
+  );
   //Label - Date
-  createContent("Date", content.date, li, "show__date");
+  createContent("Date", newDate, li, "show__date");
 
   //Label - Venue
   createContent("Venue", content.place, li, "show__venue");
@@ -95,64 +125,36 @@ function createLi(content, unOL) {
 
 //function which triggers label and p tag creation
 
-function createContent(labelName, content, li, classTag) {
-  const label = createLabel(labelName);
+function createContent(insideText, content, li, classTag) {
+  const label = createLabel(insideText, "show__label");
   const text = createP(classTag, content);
 
   li.appendChild(label);
   li.appendChild(text);
 }
 
-//creates label tags inside the div.show
-function createLabel(text) {
-  let label = document.createElement("label");
-  label.classList.add("show__label");
-  label.innerText = text;
-  return label;
-}
-
-//creates the P tags inside the div.show
-// function createP(className, text) {
-//   let pTag = document.createElement("p");
-//   pTag.classList.add(className);
-//   pTag.innerText = text;
-//   return pTag;
-// }
-
-const showItem = document.querySelectorAll(".show__item");
-
 function preventBtnDefault(button) {
   button.addEventListener("click", (e) => {
     e.preventDefault();
   });
 }
-
-showItem.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    if (
-      e.target.classList.contains("show__label") ||
-      e.target.classList.contains("show__date") ||
-      e.target.classList.contains("show__venue") ||
-      e.target.classList.contains("show__location")
-    ) {
-      let parent = e.target.parentElement;
-      parent.classList.toggle("show__item--active");
-    } else {
-      e.target.classList.toggle("show__item--active");
-    }
-  });
-});
-
-getShows();
-
-function getShows() {
-  axios
-    .get(API_URL + "showdates" + ACCESS_API_KEY)
-    .then((response) => {
-      for (let i = 0; i < response.data.length; i++) {
-        showsArray.push(response.data[i]);
+function clickListener() {
+  const showItem = document.querySelectorAll(".show__item");
+  showItem.forEach((item) => {
+    // console.log("EVENT LISTENER");
+    item.addEventListener("click", (e) => {
+      // console.log("CLICKY");
+      if (
+        e.target.classList.contains("show__label") ||
+        e.target.classList.contains("sdhow__date") ||
+        e.target.classList.contains("show__venue") ||
+        e.target.classList.contains("show__location")
+      ) {
+        let parent = e.target.parentElement;
+        parent.classList.toggle("show__item--active");
+      } else {
+        e.target.classList.toggle("show__item--active");
       }
-      createSection(showsArray);
-    })
-    .catch((err) => console.log("My API Error: ", err));
+    });
+  });
 }

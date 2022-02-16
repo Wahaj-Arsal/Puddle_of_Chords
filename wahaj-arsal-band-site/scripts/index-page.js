@@ -1,14 +1,17 @@
 /** @format */
 
-import { API_URL, ACCESS_API_KEY, createP } from "./helper-functions.js";
+import {
+  API_URL,
+  ACCESS_API_KEY,
+  createP,
+  createLabel,
+  createInput,
+} from "./helper-functions.js";
 
 const display = document.querySelector(".display");
 const commentText = document.querySelector(".comment");
 
-let commentArray = [];
-
 createContent(display);
-getCommentData();
 
 // ******** CREATE FORM START ********
 function createContent(display) {
@@ -75,27 +78,42 @@ function createForm() {
 
 // ******** RENDER COMMENTS START ********
 
+// postCommentData(myObj);
+
+// let apiObj = {};
+
 function pushObject(name, comment) {
   let myObj = {};
   myObj.name = name.value;
   myObj.comment = comment.value;
-  myObj.timestamp = new Date();
-  commentArray.push(myObj);
-  displayComment(commentArray);
+  // apiObj = myObj;
+  // console.log("obj1", myObj);
+  // console.log("myObj", apiObj);
+  // myObj.timestamp = new Date();
+  postCommentData(myObj);
+  // commentArray.push(myObj);
+  // displayComment(commentArray);
+}
+
+function clearHTML() {
+  // commentText.innerHTML = "";
+  // commentText.removeChild;
+  while (commentText.firstChild) {
+    commentText.firstChild.remove();
+  }
 }
 
 function displayComment(myArray) {
-  console.log(myArray.length);
-  commentText.innerHTML = "";
+  // clearHTML();
   for (let i = 0; i < myArray.length; i++) {
     // console.log(myArray[i]);
     const element = createHTML(myArray[i]);
     commentText.appendChild(element);
-    if (display.children.length > 0) {
-      commentText.prepend(element);
-    } else {
-      commentText.appendChild(element);
-    }
+    // if (display.children.length > 0) {
+    // commentText.prepend(element);
+    // } else {
+    commentText.appendChild(element);
+    // }
   }
 }
 
@@ -103,6 +121,7 @@ function createHTML(comment) {
   // console.log(comment);
   const element = document.createElement("div");
   element.classList.add("comment__tile");
+  element.setAttribute("id", comment.id);
 
   const image = document.createElement("div");
   image.classList.add("comment__picture");
@@ -112,9 +131,19 @@ function createHTML(comment) {
 
   const commentHeader = createDiv("comment__header");
   const commentName = createP("comment__name", comment.name);
+  const commentIcons = createDiv("comment__icons");
+
+  const commentLike = createATag("comment__like");
+  const commentDelete = createATag("comment__delete");
+
+  const commentLikeImg = createIcons("comment__img", "like", "like button");
+  const commentDeleteImg = createIcons(
+    "comment__img",
+    "delete",
+    "delete button"
+  );
 
   // let anotherMoment = newMoment(comment.date);
-
   let date = getDate(comment.timestamp);
 
   const commentDate = createP("comment__date", date);
@@ -125,9 +154,16 @@ function createHTML(comment) {
 
   commentContent.appendChild(commentHeader);
   commentContent.appendChild(commentComment);
+  commentContent.appendChild(commentIcons);
 
   commentHeader.appendChild(commentName);
   commentHeader.appendChild(commentDate);
+
+  commentIcons.appendChild(commentLike);
+  commentIcons.appendChild(commentDelete);
+
+  commentLike.appendChild(commentLikeImg);
+  commentDelete.appendChild(commentDeleteImg);
 
   return element;
 }
@@ -138,39 +174,34 @@ function createDiv(className) {
   return div;
 }
 
+function createATag(className) {
+  let aTag = document.createElement("a");
+  aTag.classList.add(className);
+  return aTag;
+}
+
+function createIcons(className, filePath, altText) {
+  let img = document.createElement("img");
+  img.classList.add(className);
+  img.setAttribute("alt", altText);
+  img.src = "../assets/Icons/SVG/icon-" + filePath + ".svg";
+  // img.setAttribute("id", id);
+  return img;
+}
+
 function createTextAreaInner(className, placeHolderType, placeHolderText) {
   let textArea = document.createElement("textarea");
   textArea.classList.add(className);
   textArea.setAttribute(placeHolderType, placeHolderText);
-  // textArea.innerText = content;
   return textArea;
-}
-
-//creates the P tags inside the div.show
-// function createP(className, text) {
-//   let pTag = document.createElement("p");
-//   pTag.classList.add(className);
-//   pTag.innerText = text;
-//   return pTag;
-// }
-
-function createLabel(comment, className) {
-  let title = document.createElement("label");
-  title.classList.add(className);
-  title.innerText = comment;
-  return title;
-}
-
-function createInput(className, placeHolderType, placeHolderText) {
-  let input = document.createElement("input");
-  input.classList.add(className);
-  input.setAttribute(placeHolderType, placeHolderText);
-  return input;
 }
 
 const commentBtn = document.querySelector(".display__btn");
 const commentInputName = document.querySelector(".display__name");
 const commentInputText = document.querySelector(".display__comment");
+
+const commentLikeBtn = document.querySelector(".comment__like");
+const commentDeleteBtn = document.querySelector(".comment__delete");
 
 commentBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -212,36 +243,47 @@ function getDate(date) {
 //   return duration;
 // }
 
-// axios
-//   .get(usersURL)
-//   .then((response) => {
-//     resPage.innerText = response.data.page;
-//     resTotalPages.innerText = response.data.total_pages;
-//     console.log(response);
-//     myArray = reponse.data.page;
-//     console.log(myArray);
-//     console.log(response.data.page);
-//     console.log(response.data.total_pages);
-
-//     response.forEach((element) => {
-//       console.log(element.data);
-//     });
-//   })
-//   .catch((err) => console.log("MY API Error: ", err));
-
-// getShows();
+window.addEventListener("DOMContentLoaded", () => {
+  // console.log("DOM FULLY LOADED");
+  getCommentData();
+});
 
 //function gets the comments data as an object and stores it in myArray. Then calls function displayComment to cycle through and render.
 function getCommentData() {
   axios
     .get(API_URL + "comments" + ACCESS_API_KEY)
     .then((response) => {
+      let commentArray = [];
       for (let i = 0; i < response.data.length; i++) {
         commentArray.push(response.data[i]);
       }
+      commentArray.sort((first, last) => last.timestamp - first.timestamp);
+      // console.log(commentArray);
+      clearHTML();
       displayComment(commentArray);
     })
-    .catch((err) => console.log("My API Error: ", err));
+    .catch((err) => console.log("My GET API Error: ", err));
 }
 
 // ******** RENDER COMMENTS END ********
+function postCommentData(myObj) {
+  axios
+    .post(API_URL + "comments" + ACCESS_API_KEY, myObj)
+    .then((response) => {
+      // console.log(response);
+      getCommentData();
+    })
+
+    .catch((err) => console.log("My POST API Error: ", err));
+}
+
+// ******** LIKE/DELETE BUTTONS START ********
+
+commentDeleteBtn.addEventListener("click", (e) => {
+  if (e.target.classList.contains("comment__img")) {
+    let itemDelete = e.target.parentElement.parentElement.parentElement;
+    itemDelete.remove();
+  }
+});
+
+// ******** LIKE/DELETE BUTTONS END ********
