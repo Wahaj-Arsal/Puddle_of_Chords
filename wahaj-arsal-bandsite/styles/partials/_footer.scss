@@ -1,0 +1,180 @@
+/** @format */
+
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+.footer {
+  background-color: $clr-primary-dark;
+  color: $clr-primary-neutral;
+
+  &__details {
+    margin: 0 auto;
+    max-width: 1020px;
+    padding: 0 1rem;
+
+    @include tablet {
+      @include flex(row, space-between, space-between);
+      flex-wrap: wrap;
+      padding: 1.75rem 2.25rem;
+    }
+
+    @include desktop {
+      @include flex(row, flex-start, space-between);
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    @include flex(column, space-between, flex-start);
+    padding: 0.75rem 0;
+    &:nth-child(6) {
+      padding: 2.5rem 0 0 0;
+    }
+
+    @include tablet {
+      @include flex(column, space-around, flex-start);
+      flex-wrap: wrap;
+      flex-basis: 31%;
+      padding: 1.5rem 0 1rem 0;
+
+      &:nth-child(1) {
+        order: 1;
+        justify-self: center;
+      }
+      &:nth-child(2) {
+        order: 2;
+      }
+      &:nth-child(3) {
+        order: 4;
+      }
+      &:nth-child(4) {
+        order: 5;
+      }
+      &:nth-child(5) {
+        order: 6;
+      }
+      &:nth-child(6) {
+        order: 3;
+        align-items: flex-end;
+        justify-items: center;
+        padding: 0;
+      }
+      &:nth-child(7) {
+        order: 7;
+        flex-grow: 2;
+        padding-bottom: 0;
+      }
+    }
+
+    @include desktop {
+      @include flex(column, space-around, flex-start);
+
+      &:nth-child(1) {
+        flex-basis: 25%;
+        order: 1;
+      }
+      &:nth-child(2) {
+        flex-basis: 25%;
+        order: 2;
+      }
+      &:nth-child(3) {
+        flex-basis: 25%;
+        order: 4;
+      }
+      &:nth-child(4) {
+        flex-basis: 25%;
+        order: 5;
+      }
+      &:nth-child(5) {
+        flex-basis: 50%;
+        flex-grow: 2;
+        order: 6;
+      }
+      &:nth-child(6) {
+        flex-grow: 2;
+        flex-basis: 50%;
+        order: 3;
+      }
+      &:nth-child(7) {
+        flex-basis: 100%;
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &__title {
+    @include m-page-section-header;
+    padding: 1rem 0 0 0;
+
+    @include tablet {
+      @include d-t-section-header;
+      padding: 0;
+      font-size: 2.15rem;
+    }
+  }
+
+  &__icon {
+    @include flex(row, space-between, null);
+    @include tablet {
+      padding: 0 0 0.25rem 0;
+    }
+  }
+
+  &__img {
+    padding-right: 1.75rem;
+    height: 1.5rem;
+    @include tablet {
+      height: 1.75rem;
+    }
+  }
+
+  &__name {
+    @include m-sub-header;
+    padding: 0 0 1rem 0;
+    font-weight: bold;
+
+    @include tablet {
+      @include d-t-body-copy;
+      font-weight: 600;
+      padding: 0 0 1.5rem 0;
+    }
+  }
+
+  &__address,
+  &__text {
+    @include m-body-footer-copy;
+    padding: 0 0 1rem 0;
+
+    @include tablet {
+      @include d-t-body-copy;
+      padding: 0 0 1.5rem 0;
+    }
+  }
+
+  &__email {
+    @include m-body-footer-copy;
+    color: $clr-primary-neutral;
+    text-decoration: none;
+
+    @include tablet {
+      @include d-t-body-copy;
+    }
+  }
+
+  &__logo {
+    @include tablet {
+      height: 1.25rem;
+    }
+  }
+
+  &__copyright {
+    @include m-body-footer-copy;
+    font-size: 0.68rem;
+
+    @include tablet {
+      @include d-t-footer-copy;
+    }
+  }
+}

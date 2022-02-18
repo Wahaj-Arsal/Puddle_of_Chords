@@ -1,0 +1,366 @@
+/** @format */
+
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+.about {
+  margin: 0 auto;
+  max-width: 1020px;
+  padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  &__title {
+    @include flex(column, center, flex-start);
+  }
+
+  &__heading {
+    @include m-page-section-header;
+    padding: 1.5rem 0 0.5rem 0;
+
+    @include tablet {
+      @include d-t-section-header;
+      padding: 3rem 0 2.25rem 0;
+    }
+  }
+
+  &__content {
+    @include tablet {
+      padding: 0 3.5rem;
+    }
+
+    @include desktop {
+      padding: 0 5rem;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__quote {
+    @include m-sub-header;
+    padding: 0.5rem 0;
+
+    @include tablet {
+      @include d-t-sub-header;
+      padding: 2.5rem 0 1rem 0;
+    }
+  }
+
+  &__text {
+    @include m-sub-header;
+    padding: 0 0 1.5rem 0;
+
+    @include tablet {
+      @include d-t-body-copy;
+      font-weight: bold;
+      padding: 0 0 3rem 0;
+    }
+  }
+}
+
+.main {
+  margin: 0 auto;
+  max-width: 1020px;
+  padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  &__head {
+    @include tablet {
+      padding: 0 3.5rem;
+    }
+
+    @include desktop {
+      padding: 0 5rem;
+    }
+  }
+
+  &__title {
+    @include m-body-footer-copy;
+    font-weight: 600;
+    padding: 0 0 1rem 0;
+
+    @include tablet {
+      @include d-t-sub-header;
+      padding: 0 0 1rem 0;
+    }
+  }
+
+  &__content {
+    @include tablet {
+      @include flex(row, space-between, top);
+    }
+  }
+
+  &__text {
+    padding: 0 0 1.5rem 0;
+
+    @include tablet {
+      &:nth-child(odd) {
+        padding-right: 1rem;
+      }
+      &:nth-child(even) {
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  &__para {
+    @include m-body-footer-copy;
+    @include tablet {
+      @include d-t-body-copy;
+    }
+  }
+}
+
+.gallery {
+  background-color: $clr-secondary-neutral;
+
+  &__content {
+    margin: 0 auto;
+    max-width: 1020px;
+    padding: 0 1rem;
+
+    @include tablet {
+      @include flex(column, center, flex-start);
+      padding: 0 2.25rem;
+    }
+  }
+
+  &__title {
+    @include m-page-section-header;
+    padding: 1.5rem 0 1rem 0;
+
+    @include tablet {
+      @include d-t-section-header;
+      padding: 3rem 0 2.25rem 0;
+    }
+  }
+
+  &__photo {
+    @include tablet {
+      @include flex(row, space-between, center);
+      flex-wrap: wrap;
+      padding: 0 0 2rem 0;
+    }
+  }
+  &__img {
+    transition: all 1s ease-in-out;
+    width: 100%;
+    filter: grayscale(100%);
+    padding: 0.5rem 0; //1rem total, 0.5 per picture
+
+    @include tablet {
+      width: 31%;
+    }
+    &:hover {
+      filter: grayscale(0%);
+      transition: all 1s ease-in-out;
+    }
+  }
+}
+
+.display {
+  @include flex(column, space-between, left);
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 1020px;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+  &__title {
+    @include m-page-section-header;
+    padding: 1.5rem 0 1rem 0;
+    @include tablet {
+      @include d-t-section-header;
+    }
+  }
+  &__content {
+    @include flex(row, space-between, left);
+    // border-bottom: 2px solid $clr-secondary-light;
+    padding: 1rem 0;
+    @include tablet {
+      padding: 1.5rem 3.5rem;
+    }
+    @include desktop {
+      padding: 1.5rem 15rem;
+    }
+  }
+  &__picture {
+    width: 20%;
+    background-image: url("../../assets/Images/Mohan-muruge.jpg");
+    background-position: -4px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 2.25rem;
+    max-height: 2.25rem;
+    border-radius: 50%;
+    margin-top: 1.625rem;
+    @include tablet {
+      max-width: 3rem;
+      max-height: 3rem;
+      margin-top: 25px;
+    }
+  }
+  &__form {
+    @include flex(column, space-between, left);
+    width: 100%;
+    padding: 0 1rem;
+  }
+  &__label {
+    @include m-body-footer-copy;
+    color: $clr-primary-light;
+    font-weight: 400;
+    padding-bottom: 0.25rem;
+    text-transform: uppercase;
+    // font-weight: 600;
+    @include tablet {
+      @include d-t-body-copy;
+    }
+  }
+  &__name,
+  &__comment {
+    @include m-body-footer-copy;
+    min-height: 2.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid $clr-secondary-light;
+    background-color: $clr-secondary-neutral;
+    padding: 0.75rem;
+    margin: 0 0 1rem 0;
+    @include tablet {
+      @include d-t-body-copy;
+      min-height: 3rem;
+      padding: 1rem;
+    }
+    &:active {
+      border: 1px solid $clr-primary-dark;
+    }
+    &--error {
+      border: 1px solid #d22d2d;
+    }
+    &::placeholder {
+      color: $clr-primary-dark;
+    }
+  }
+
+  &__comment {
+    height: 6rem;
+    vertical-align: text-top;
+  }
+
+  &__btn {
+    @include m-sub-header;
+    background-color: $clr-primary-dark;
+    color: $clr-primary-neutral;
+    height: 2.5rem; //required
+    min-width: 9.375rem; //required
+    padding: 0 2rem;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    border-radius: 4px; //required
+    border: 0;
+    &:hover {
+      background-color: $clr-secondary-dark;
+    }
+    @include tablet {
+      @include d-t-body-copy;
+      width: 25%;
+      align-self: flex-end;
+    }
+  }
+}
+
+.comment {
+  @include m-body-footer-copy;
+  padding: 0 1rem 1rem 1rem;
+  margin: 0 auto;
+  max-width: 1020px;
+  // max-height: 1020px;
+  @include tablet {
+    @include d-t-body-copy;
+    padding: 0 5.75rem; //36px and 56px combined
+  }
+  @include desktop {
+    padding: 0 17.25rem;
+  }
+  &__tile {
+    @include flex(row, flex-start, left);
+    border-bottom: 2px solid $clr-secondary-light;
+    width: 100%;
+    padding: 0.5rem 0 1rem 0;
+    &:nth-child(1) {
+      border-top: 2px solid $clr-secondary-light;
+    }
+    @include tablet {
+      &:last-child {
+        margin: 0 0 2rem 0;
+      }
+    }
+  }
+
+  &__picture {
+    width: 20%;
+    background-image: url("");
+    background-color: $clr-secondary-light;
+    background-position: -4px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 2.25rem; //36px
+    max-height: 2.25rem; //36px
+    border-radius: 50%;
+    margin-top: 0.625rem;
+    @include tablet {
+      max-width: 3rem;
+      max-height: 3rem;
+      margin-top: 10px;
+    }
+  }
+
+  &__content {
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  &__header {
+    @include flex(row, space-between, center);
+    padding: 0.5rem 0;
+  }
+
+  &__name {
+    @include m-labels-buttons;
+    font-size: 0.75rem;
+    @include tablet {
+      @include d-t-labels-buttons;
+    }
+  }
+
+  &__date {
+    @include m-body-footer-copy;
+    color: $clr-primary-light;
+    @include tablet {
+      @include d-t-body-copy;
+    }
+  }
+
+  &__text {
+    @include m-body-footer-copy;
+    width: 100%;
+    @include tablet {
+      @include d-t-body-copy;
+    }
+  }
+  &__icons {
+    @include flex(row, right, center);
+    padding: 1rem 0;
+  }
+  &__img {
+    padding: 0 0 0 1rem;
+  }
+}
