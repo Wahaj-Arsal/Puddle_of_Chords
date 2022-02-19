@@ -357,10 +357,31 @@
     }
   }
   &__icons {
-    @include flex(row, right, center);
-    padding: 1rem 0;
+    @include flex(row, flex-end, center);
+    padding: 1rem 0 0 0;
   }
-  &__img {
-    padding: 0 0 0 1rem;
+  &__delete,
+  &__like {
+    @include flex(row, space-around, flex-start);
+  }
+
+  &__like,
+  &__delete {
+    @include m-sub-header;
+    background-color: $clr-primary-neutral;
+    height: 2rem;
+    width: 3rem;
+    // padding: 0 0.5rem;
+    // margin-top: 0.5rem;
+    // text-transform: uppercase;
+    border-radius: 4px; //required
+    border: 0;
+
+    @include tablet {
+      @include d-t-body-copy;
+    }
+  }
+  &__like {
+    width: 4rem;
   }
 }

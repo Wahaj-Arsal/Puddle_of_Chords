@@ -25,7 +25,13 @@ function getShows() {
         showsArray.push(response.data[i]);
       }
       createSection(showsArray);
-      clickListener();
+      const showItem = document.querySelectorAll(".show__item");
+      // const activeItem = document.querySelectorAll(".show__item--active");
+
+      clickListener(showItem);
+      mouseOverListener(showItem);
+      // deciderListener(showItem);
+      // effectDecider(showItem, activeItem);
     })
     .catch((err) => console.log("My API Error: ", err));
 }
@@ -101,8 +107,10 @@ function createLi(content, unOL) {
     "en-UK",
     options
   );
+  let updatedDate = newDate.replace(",", "");
+
   //Label - Date
-  createContent("Date", newDate, li, "show__date");
+  createContent("Date", updatedDate, li, "show__date");
 
   //Label - Venue
   createContent("Venue", content.place, li, "show__venue");
@@ -138,23 +146,81 @@ function preventBtnDefault(button) {
     e.preventDefault();
   });
 }
-function clickListener() {
-  const showItem = document.querySelectorAll(".show__item");
+
+// function effectDecider(showItem, activeItem) {
+//   if (activeItem === true) {
+//     return;
+//   } else {
+//     mouseOverListener(showItem);
+//   }
+// }
+
+function clickListener(showItem) {
   showItem.forEach((item) => {
     // console.log("EVENT LISTENER");
     item.addEventListener("click", (e) => {
       // console.log("CLICKY");
       if (
         e.target.classList.contains("show__label") ||
-        e.target.classList.contains("sdhow__date") ||
+        e.target.classList.contains("show__date") ||
         e.target.classList.contains("show__venue") ||
         e.target.classList.contains("show__location")
       ) {
         let parent = e.target.parentElement;
         parent.classList.toggle("show__item--active");
+        parent.classList.remove("show__item--hover");
       } else {
         e.target.classList.toggle("show__item--active");
+        e.target.classList.remove("show__item--hover");
       }
     });
+  });
+}
+
+// function deciderListener(showItem) {
+//   showItem.forEach((item) => {
+//     item.addEventListener("mouseenter", (e) => {
+//       if (e.target.classList.contains("show__item--active") !== true) {
+//         mouseOverListener(showItem);
+//       }
+//     });
+//     item.addEventListener("mouseover", (e) => {
+//       if (e.target.classList.contains("show__item--active") !== true) {
+//         mouseOverListener(showItem);
+//       }
+//     });
+//     item.addEventListener("mouseout", (e) => {
+//       if (e.target.classList.contains("show__item--active") !== true) {
+//         mouseOverListener(showItem);
+//       }
+//     });
+//   });
+// }
+
+function mouseOverListener(showItem) {
+  showItem.forEach((item) => {
+    // item.addEventListener("mouseenter", (e) => {
+    //
+    // });
+    item.addEventListener("mouseover", (e) => {
+      if (
+        e.target.classList.contains("show__label") ||
+        e.target.classList.contains("show__date") ||
+        e.target.classList.contains("show__venue") ||
+        e.target.classList.contains("show__location")
+      ) {
+        let parent = e.target.parentElement;
+        if (!parent.classList.contains("show__item--active")) {
+          parent.classList.add("show__item--hover");
+        }
+      } else {
+        if (!e.target.classList.contains("show__item--active")) {
+          e.target.classList.add("show__item--hover");
+        }
+      }
+    });
+  });
+  item.addEventListener("mouseout", (e) => {
+    e.target.classList.remove("show__item--hover");
   });
 }

@@ -159,7 +159,7 @@ function deleteComment(e) {
 function likeComment(e) {
   // e.remove();
   let id = e.id;
-  console.log(id);
+  // console.log(id);
   axios
     .put(
       `https://project-1-api.herokuapp.com/comments/${id}/like/?api_key=9b6a5a60-a04e-4c65-85dd-71b62986ca6e`
@@ -191,7 +191,7 @@ function createHTML(comment) {
   commentLike.addEventListener("click", (e) => {
     let likeTile =
       e.target.parentElement.parentElement.parentElement.parentElement;
-    console.log(likeTile);
+    // console.log(likeTile);
     likeComment(likeTile);
     // console.log(likeTile);
   });
@@ -211,8 +211,7 @@ function createHTML(comment) {
     "delete button"
   );
 
-  // let anotherMoment = newMoment(comment.date);
-  let date = getDate(comment.timestamp);
+  let date = newMoment(comment.timestamp);
 
   const commentDate = createP("comment__date", date);
   const commentComment = createP("comment__text", comment.comment);
@@ -250,23 +249,20 @@ const commentInputText = document.querySelector(".display__comment");
 
 // ******** LIKE/DELETE BUTTONS END ********
 
-//date
+function newMoment(commentDate) {
+  let x = new moment(commentDate);
+  // console.log("THIS IS X " + x);
+  let momentDate = new moment();
+  let y = momentDate;
 
-function getDate(date) {
-  // var currentDate = new moment();
-  let currentDate = new Date(date);
-  // console.log(currentDate);
-  return currentDate;
+  // console.log("THIS IS Y " + y);
+
+  let duration = moment.duration(-y.diff(x)).humanize(true);
+
+  // var durationYears = duration.asYears();
+
+  return duration;
 }
-// function newMoment(commentDate) {
-//   let x = commentDate;
-//   let y = new moment();
-
-//   let duration = moment.duration(-y.diff(x)).humanize(true);
-//   // var durationYears = duration.asYears();
-
-//   return duration;
-// }
 
 window.addEventListener("DOMContentLoaded", () => {
   // console.log("DOM FULLY LOADED");

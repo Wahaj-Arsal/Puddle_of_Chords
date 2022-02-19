@@ -503,7 +503,7 @@ textarea {
 .show__item--active {
   background-color: #e1e1e1;
 }
-.show__item:hover {
+.show__item--hover {
   background-color: #fafafa;
 }
 .show__content {
