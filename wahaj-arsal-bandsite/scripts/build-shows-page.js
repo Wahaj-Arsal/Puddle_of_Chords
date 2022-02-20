@@ -14,8 +14,6 @@ let showsArray = [];
 const section = document.querySelector(".show");
 
 getShows();
-// clickListener();
-// createSection(myArray);
 
 function getShows() {
   axios
@@ -26,12 +24,8 @@ function getShows() {
       }
       createSection(showsArray);
       const showItem = document.querySelectorAll(".show__item");
-      // const activeItem = document.querySelectorAll(".show__item--active");
-
       clickListener(showItem);
       mouseOverListener(showItem);
-      // deciderListener(showItem);
-      // effectDecider(showItem, activeItem);
     })
     .catch((err) => console.log("My API Error: ", err));
 }
@@ -93,7 +87,6 @@ function createLi(content, unOL) {
   //Li Tags
   let li = document.createElement("li");
   li.classList.add("show__item");
-  // console.log(content);
 
   //Create Date Format
   let options = {
@@ -132,7 +125,6 @@ function createLi(content, unOL) {
 }
 
 //function which triggers label and p tag creation
-
 function createContent(insideText, content, li, classTag) {
   const label = createLabel(insideText, "show__label");
   const text = createP(classTag, content);
@@ -147,19 +139,9 @@ function preventBtnDefault(button) {
   });
 }
 
-// function effectDecider(showItem, activeItem) {
-//   if (activeItem === true) {
-//     return;
-//   } else {
-//     mouseOverListener(showItem);
-//   }
-// }
-
 function clickListener(showItem) {
   showItem.forEach((item) => {
-    // console.log("EVENT LISTENER");
     item.addEventListener("click", (e) => {
-      // console.log("CLICKY");
       if (
         e.target.classList.contains("show__label") ||
         e.target.classList.contains("show__date") ||
@@ -177,31 +159,8 @@ function clickListener(showItem) {
   });
 }
 
-// function deciderListener(showItem) {
-//   showItem.forEach((item) => {
-//     item.addEventListener("mouseenter", (e) => {
-//       if (e.target.classList.contains("show__item--active") !== true) {
-//         mouseOverListener(showItem);
-//       }
-//     });
-//     item.addEventListener("mouseover", (e) => {
-//       if (e.target.classList.contains("show__item--active") !== true) {
-//         mouseOverListener(showItem);
-//       }
-//     });
-//     item.addEventListener("mouseout", (e) => {
-//       if (e.target.classList.contains("show__item--active") !== true) {
-//         mouseOverListener(showItem);
-//       }
-//     });
-//   });
-// }
-
 function mouseOverListener(showItem) {
   showItem.forEach((item) => {
-    // item.addEventListener("mouseenter", (e) => {
-    //
-    // });
     item.addEventListener("mouseover", (e) => {
       if (
         e.target.classList.contains("show__label") ||
@@ -219,8 +178,18 @@ function mouseOverListener(showItem) {
         }
       }
     });
-  });
-  item.addEventListener("mouseout", (e) => {
-    e.target.classList.remove("show__item--hover");
+    item.addEventListener("mouseleave", (e) => {
+      if (
+        e.target.classList.contains("show__label") ||
+        e.target.classList.contains("show__date") ||
+        e.target.classList.contains("show__venue") ||
+        e.target.classList.contains("show__location")
+      ) {
+        let parent = e.target.parentElement;
+        parent.classList.remove("show__item--hover");
+      } else {
+        e.target.classList.remove("show__item--hover");
+      }
+    });
   });
 }

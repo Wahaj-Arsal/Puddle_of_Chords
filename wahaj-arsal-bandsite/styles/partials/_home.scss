@@ -228,6 +228,7 @@
   &__name,
   &__comment {
     @include m-body-footer-copy;
+    font-family: Avenir, "Roboto";
     min-height: 2.25rem;
     border-radius: 0.25rem;
     border: 1px solid $clr-secondary-light;

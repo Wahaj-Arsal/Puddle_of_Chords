@@ -2,6 +2,7 @@
 /** @format */
 html,
 body {
+  font-family: Avenir, serif;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
@@ -39,16 +40,19 @@ textarea {
   font-family: "Avenir";
   src: url("../assets/Font/AvenirNextLTPro-Regular.otf");
   font-weight: 400;
+  font-style: normal;
 }
 @font-face {
   font-family: "Avenir";
   src: url("../assets/Font/AvenirNextLTPro-Demi.otf");
   font-weight: 600;
+  font-style: normal;
 }
 @font-face {
   font-family: "Avenir";
+  src: url("../assets/Font/AvenirNextLTPro-Bold.otf");
   font-weight: 700;
-  src: url("../assets/Font/AvenirNextLTPro-Bold.otf"), url("../assets/Font/Alternativefiles/AvenirNextLTProBold.ttf");
+  font-style: normal;
 }
 /** @format */
 /* media query for mobile */
@@ -79,7 +83,7 @@ textarea {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
   padding: 1rem 0 0.5rem 0;
-  font-family: "Avenir";
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -119,7 +123,7 @@ textarea {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: "Avenir";
+  font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.375rem;
   list-style: none;
@@ -132,11 +136,9 @@ textarea {
 }
 .navbar__item--inactive {
   border-bottom: 0.25rem solid #323232;
-  font-family: "Avenir";
 }
 .navbar__item--active {
   border-bottom: 0.25rem solid #fafafa;
-  font-family: "Avenir";
 }
 .navbar__item::after {
   position: absolute;
@@ -159,7 +161,7 @@ textarea {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
     margin: 0 1.75rem;
@@ -172,7 +174,7 @@ textarea {
   padding-bottom: 0.5rem;
 }
 .navbar__link--active {
-  font-family: "Avenir";
+  font-weight: bold;
   color: #ffffff;
 }
 .navbar__link:hover {
@@ -301,14 +303,14 @@ textarea {
   }
 }
 .footer__title {
-  font-family: "Avenir";
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
   padding: 1rem 0 0 0;
 }
 @media only screen and (min-width: 768px) {
   .footer__title {
-    font-family: "Avenir";
+    font-weight: 700;
     font-size: 2.25rem;
     line-height: 2.75rem;
     padding: 0;
@@ -335,7 +337,7 @@ textarea {
   }
 }
 .footer__name {
-  font-family: "Avenir";
+  font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.375rem;
   padding: 0 0 1rem 0;
@@ -343,7 +345,7 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .footer__name {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
     font-weight: 600;
@@ -351,21 +353,21 @@ textarea {
   }
 }
 .footer__address, .footer__text {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
   padding: 0 0 1rem 0;
 }
 @media only screen and (min-width: 768px) {
   .footer__address, .footer__text {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
     padding: 0 0 1.5rem 0;
   }
 }
 .footer__email {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
   color: #ffffff;
@@ -373,7 +375,7 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .footer__email {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
@@ -384,14 +386,14 @@ textarea {
   }
 }
 .footer__copyright {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
   font-size: 0.68rem;
 }
 @media only screen and (min-width: 768px) {
   .footer__copyright {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
@@ -415,14 +417,14 @@ textarea {
   align-items: flex-start;
 }
 .about__heading {
-  font-family: "Avenir";
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
   padding: 1.5rem 0 0.5rem 0;
 }
 @media only screen and (min-width: 768px) {
   .about__heading {
-    font-family: "Avenir";
+    font-weight: 700;
     font-size: 2.25rem;
     line-height: 2.75rem;
     padding: 3rem 0 2.25rem 0;
@@ -442,28 +444,28 @@ textarea {
   width: 100%;
 }
 .about__quote {
-  font-family: "Avenir";
+  font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.375rem;
   padding: 0.5rem 0;
 }
 @media only screen and (min-width: 768px) {
   .about__quote {
-    font-family: "Avenir";
+    font-weight: 600;
     font-size: 1.5rem;
     line-height: 2rem;
     padding: 2.5rem 0 1rem 0;
   }
 }
 .about__text {
-  font-family: "Avenir";
+  font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.375rem;
   padding: 0 0 1.5rem 0;
 }
 @media only screen and (min-width: 768px) {
   .about__text {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
     font-weight: bold;
@@ -492,7 +494,7 @@ textarea {
   }
 }
 .main__title {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
   font-weight: 600;
@@ -500,7 +502,7 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .main__title {
-    font-family: "Avenir";
+    font-weight: 600;
     font-size: 1.5rem;
     line-height: 2rem;
     padding: 0 0 1rem 0;
@@ -526,13 +528,13 @@ textarea {
   }
 }
 .main__para {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
 }
 @media only screen and (min-width: 768px) {
   .main__para {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
@@ -556,14 +558,14 @@ textarea {
   }
 }
 .gallery__title {
-  font-family: "Avenir";
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
   padding: 1.5rem 0 1rem 0;
 }
 @media only screen and (min-width: 768px) {
   .gallery__title {
-    font-family: "Avenir";
+    font-weight: 700;
     font-size: 2.25rem;
     line-height: 2.75rem;
     padding: 3rem 0 2.25rem 0;
@@ -610,14 +612,14 @@ textarea {
   }
 }
 .display__title {
-  font-family: "Avenir";
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
   padding: 1.5rem 0 1rem 0;
 }
 @media only screen and (min-width: 768px) {
   .display__title {
-    font-family: "Avenir";
+    font-weight: 700;
     font-size: 2.25rem;
     line-height: 2.75rem;
   }
@@ -666,7 +668,7 @@ textarea {
   padding: 0 1rem;
 }
 .display__label {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
   color: #afafaf;
@@ -676,15 +678,16 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .display__label {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
 }
 .display__name, .display__comment {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
+  font-family: Avenir, "Roboto";
   min-height: 2.25rem;
   border-radius: 0.25rem;
   border: 1px solid #e1e1e1;
@@ -694,7 +697,7 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .display__name, .display__comment {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
     min-height: 3rem;
@@ -721,7 +724,7 @@ textarea {
   vertical-align: text-top;
 }
 .display__btn {
-  font-family: "Avenir";
+  font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.375rem;
   background-color: #323232;
@@ -739,7 +742,7 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .display__btn {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
     width: 25%;
@@ -748,7 +751,7 @@ textarea {
 }
 
 .comment {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
   padding: 0 1rem 1rem 1rem;
@@ -757,7 +760,7 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .comment {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
     padding: 0 5.75rem;
@@ -816,40 +819,40 @@ textarea {
   padding: 0.5rem 0;
 }
 .comment__name {
-  font-family: "Avenir";
+  font-weight: 700;
   font-size: 0.625rem;
   line-height: 1.25rem;
   font-size: 0.75rem;
 }
 @media only screen and (min-width: 768px) {
   .comment__name {
-    font-family: "Avenir";
+    font-weight: 700;
     font-size: 0.75rem;
     line-height: 1.25rem;
   }
 }
 .comment__date {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
   color: #afafaf;
 }
 @media only screen and (min-width: 768px) {
   .comment__date {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
 }
 .comment__text {
-  font-family: "Avenir";
+  font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
   width: 100%;
 }
 @media only screen and (min-width: 768px) {
   .comment__text {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
@@ -868,7 +871,7 @@ textarea {
   align-items: flex-start;
 }
 .comment__like, .comment__delete {
-  font-family: "Avenir";
+  font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.375rem;
   background-color: #ffffff;
@@ -879,7 +882,7 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .comment__like, .comment__delete {
-    font-family: "Avenir";
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
@@ -911,7 +914,7 @@ textarea {
   }
 }
 .hero__title {
-  font-family: "Avenir";
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
   color: #ffffff;
@@ -919,7 +922,7 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   .hero__title {
-    font-family: "Avenir";
+    font-weight: 700;
     font-size: 3.75rem;
     line-height: 4.25rem;
     padding: 1rem 0 2rem 0;

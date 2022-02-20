@@ -130,21 +130,11 @@ function clearHTML() {
 }
 
 function displayComment(myArray) {
-  for (let i = 0; i < myArray.length; i++) {
-    const element = createHTML(myArray[i]);
+  myArray.forEach((i) => {
+    const element = createHTML(i);
     commentText.appendChild(element);
-  }
+  });
 }
-
-// function likeEvent() {
-//   const commentLikeBtn = document.querySelector(".comment__like");
-//   let likeTile;
-// }
-
-// function deleteEvent() {
-//   const commentDeleteBtn = document.querySelector(".comment__delete");
-//   let deleteTile;
-// }
 
 function deleteComment(e) {
   e.remove();
@@ -189,19 +179,26 @@ function createHTML(comment) {
 
   const commentLike = createButton("comment__like", comment.likes);
   commentLike.addEventListener("click", (e) => {
-    let likeTile =
-      e.target.parentElement.parentElement.parentElement.parentElement;
-    // console.log(likeTile);
-    likeComment(likeTile);
-    // console.log(likeTile);
+    if (e.target.classList.contains("comment__img")) {
+      let likeImg =
+        e.target.parentElement.parentElement.parentElement.parentElement;
+      likeComment(likeImg);
+    } else if (e.target.classList.contains("comment__like")) {
+      let likeBtn = e.target.parentElement.parentElement.parentElement;
+      likeComment(likeBtn);
+    }
   });
 
   const commentDelete = createButton("comment__delete", null);
   commentDelete.addEventListener("click", (e) => {
-    let deleteTile =
-      e.target.parentElement.parentElement.parentElement.parentElement;
-    // console.log(deleteTile.id);
-    deleteComment(deleteTile);
+    if (e.target.classList.contains("comment__img")) {
+      let deleteImg =
+        e.target.parentElement.parentElement.parentElement.parentElement;
+      deleteComment(deleteImg);
+    } else if (e.target.classList.contains("comment__delete")) {
+      let deleteBtn = e.target.parentElement.parentElement.parentElement;
+      deleteComment(deleteBtn);
+    }
   });
 
   const commentLikeImg = createIcons("comment__img", "like", "like button");
@@ -213,7 +210,7 @@ function createHTML(comment) {
 
   let date = newMoment(comment.timestamp);
 
-  const commentDate = createP("comment__date", date);
+  const commentDate = createP("comment__date", date + " ago");
   const commentComment = createP("comment__text", comment.comment);
 
   element.appendChild(image);
@@ -238,34 +235,14 @@ function createHTML(comment) {
 const commentInputName = document.querySelector(".display__name");
 const commentInputText = document.querySelector(".display__comment");
 
-// ******** LIKE/DELETE BUTTONS START ********
-
-// commentDeleteBtn.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("comment__img")) {
-//     // let itemDelete = e.target.parentElement.parentElement.parentElement;
-//     // itemDelete.remove();
-//   }
-// });
-
-// ******** LIKE/DELETE BUTTONS END ********
-
 function newMoment(commentDate) {
   let x = new moment(commentDate);
-  // console.log("THIS IS X " + x);
-  let momentDate = new moment();
-  let y = momentDate;
-
-  // console.log("THIS IS Y " + y);
-
-  let duration = moment.duration(-y.diff(x)).humanize(true);
-
-  // var durationYears = duration.asYears();
-
+  let y = new moment();
+  let duration = moment.duration(-y.diff(x)).humanize();
   return duration;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  // console.log("DOM FULLY LOADED");
   getCommentData();
 });
 
@@ -275,17 +252,15 @@ function getCommentData() {
     .get(API_URL + "comments" + ACCESS_API_KEY)
     .then((response) => {
       let commentArray = [];
-      for (let i = 0; i < response.data.length; i++) {
-        commentArray.push(response.data[i]);
-      }
+      response.data.forEach((i) => {
+        commentArray.push(i);
+      });
       commentArray.sort((first, last) => last.timestamp - first.timestamp);
-      // console.log(commentArray);
       clearHTML();
       displayComment(commentArray);
     })
     .catch((err) => console.log("My GET API Error: ", err));
 }
-
 // ******** RENDER COMMENTS END ********
 
 // ******** POST COMMENTS START ********
@@ -293,11 +268,8 @@ function postCommentData(myObj) {
   axios
     .post(API_URL + "comments" + ACCESS_API_KEY, myObj)
     .then((response) => {
-      // console.log(response);
       getCommentData();
     })
-
     .catch((err) => console.log("My POST API Error: ", err));
 }
-
 // ******** POST COMMENTS END ********

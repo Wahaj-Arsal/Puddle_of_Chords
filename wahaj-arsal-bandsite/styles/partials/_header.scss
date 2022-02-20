@@ -53,12 +53,12 @@
 
     &--inactive {
       border-bottom: 0.25rem solid $clr-primary-dark;
-      @include font-bold;
+      // @include font-bold;
     }
 
     &--active {
       border-bottom: 0.25rem solid $clr-secondary-neutral;
-      @include font-bold;
+      // @include font-bold;
     }
 
     &::after {
@@ -91,7 +91,9 @@
     padding-bottom: 0.5rem;
 
     &--active {
-      @include font-bold;
+      // @include font-bold;
+      // font-family: "Avenir";
+      font-weight: bold;
       color: $clr-primary-neutral;
     }
 
