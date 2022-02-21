@@ -642,7 +642,7 @@ textarea {
 }
 .display__picture {
   width: 20%;
-  background-image: url("../../assets/Images/Mohan-muruge.jpg");
+  background-image: url("../assets/Images/Mohan-muruge.jpg");
   background-position: -0.25rem;
   background-size: cover;
   background-repeat: no-repeat;
@@ -875,8 +875,7 @@ textarea {
   line-height: 1.375rem;
   background-color: #ffffff;
   height: 2rem;
-  width: 3rem;
-  border-radius: 4px;
+  margin-left: 0.5rem;
   border: 0;
 }
 @media only screen and (min-width: 768px) {
@@ -885,6 +884,9 @@ textarea {
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
+}
+.comment__delete {
+  width: 2rem;
 }
 .comment__like {
   width: 4rem;

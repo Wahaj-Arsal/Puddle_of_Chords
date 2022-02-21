@@ -195,7 +195,7 @@
   }
   &__picture {
     width: 20%;
-    background-image: url("../../assets/Images/Mohan-muruge.jpg");
+    background-image: url("../assets/Images/Mohan-muruge.jpg");
     background-position: -0.25rem; //-4px
     background-size: cover;
     background-repeat: no-repeat;
@@ -372,16 +372,15 @@
     @include m-sub-header;
     background-color: $clr-primary-neutral;
     height: 2rem;
-    width: 3rem;
-    // padding: 0 0.5rem;
-    // margin-top: 0.5rem;
-    // text-transform: uppercase;
-    border-radius: 4px; //required
+    margin-left: 0.5rem;
     border: 0;
 
     @include tablet {
       @include d-t-body-copy;
     }
+  }
+  &__delete {
+    width: 2rem;
   }
   &__like {
     width: 4rem;
