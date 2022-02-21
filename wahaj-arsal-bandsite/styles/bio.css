@@ -38,19 +38,19 @@ textarea {
 /** @format */
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/Font/AvenirNextLTPro-Regular.otf");
+  src: url("../assets/Font/AvenirNextLTPro-Regular.otf"), url("../assets/Font/Alternativefiles/AvenirNextLTPro.ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/Font/AvenirNextLTPro-Demi.otf");
+  src: url("../assets/Font/AvenirNextLTPro-Demi.otf"), url("../assets/Font/Alternativefiles/AvenirNextLTProDemi.ttf");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/Font/AvenirNextLTPro-Bold.otf");
+  src: url("../assets/Font/AvenirNextLTPro-Bold.otf"), url("../assets/Font/Alternativefiles/AvenirNextLTProBold.ttf");
   font-weight: 700;
   font-style: normal;
 }
@@ -341,7 +341,6 @@ textarea {
   font-size: 0.875rem;
   line-height: 1.375rem;
   padding: 0 0 1rem 0;
-  font-weight: bold;
 }
 @media only screen and (min-width: 768px) {
   .footer__name {
@@ -468,7 +467,7 @@ textarea {
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.375rem;
-    font-weight: bold;
+    font-weight: 600;
     padding: 0 0 3rem 0;
   }
 }
@@ -497,7 +496,7 @@ textarea {
   font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0 0 1rem 0;
 }
 @media only screen and (min-width: 768px) {
@@ -531,6 +530,7 @@ textarea {
   font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
+  font-weight: 400;
 }
 @media only screen and (min-width: 768px) {
   .main__para {
@@ -582,7 +582,6 @@ textarea {
   }
 }
 .gallery__img {
-  transition: all 1s ease-in-out;
   width: 100%;
   filter: grayscale(100%);
   padding: 0.5rem 0;
@@ -644,7 +643,7 @@ textarea {
 .display__picture {
   width: 20%;
   background-image: url("../../assets/Images/Mohan-muruge.jpg");
-  background-position: -4px;
+  background-position: -0.25rem;
   background-size: cover;
   background-repeat: no-repeat;
   max-width: 2.25rem;
@@ -656,7 +655,7 @@ textarea {
   .display__picture {
     max-width: 3rem;
     max-height: 3rem;
-    margin-top: 25px;
+    margin-top: 1.563rem;
   }
 }
 .display__form {
@@ -672,15 +671,15 @@ textarea {
   font-size: 0.813rem;
   line-height: 1.125rem;
   color: #afafaf;
-  font-weight: 400;
   padding-bottom: 0.25rem;
   text-transform: uppercase;
 }
 @media only screen and (min-width: 768px) {
   .display__label {
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.375rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 600;
   }
 }
 .display__name, .display__comment {
@@ -804,7 +803,7 @@ textarea {
   .comment__picture {
     max-width: 3rem;
     max-height: 3rem;
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 }
 .comment__content {

@@ -3,19 +3,22 @@
 // ******** Typography ********
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/Font/AvenirNextLTPro-Regular.otf");
+  src: url("../assets/Font/AvenirNextLTPro-Regular.otf"),
+    url("../assets/Font/Alternativefiles/AvenirNextLTPro.ttf");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/Font/AvenirNextLTPro-Demi.otf");
+  src: url("../assets/Font/AvenirNextLTPro-Demi.otf"),
+    url("../assets/Font/Alternativefiles/AvenirNextLTProDemi.ttf");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Avenir";
-  src: url("../assets/Font/AvenirNextLTPro-Bold.otf");
+  src: url("../assets/Font/AvenirNextLTPro-Bold.otf"),
+    url("../assets/Font/Alternativefiles/AvenirNextLTProBold.ttf");
   font-weight: 700;
   font-style: normal;
 }
@@ -46,6 +49,7 @@
 }
 @mixin m-body-footer-copy {
   // @include font-regular;
+  // font-family: Avenir;
   font-weight: 400;
   font-size: 0.813rem; //13px
   line-height: 1.125rem; //18px

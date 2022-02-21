@@ -54,10 +54,10 @@
   }
   &__music {
     width: 100%;
-    height: 115px;
+    height: 7.188rem; //115px
     @include tablet {
       width: 65%;
-      height: 120px;
+      height: 7.5rem; //120px
     }
     @include desktop {
       width: 40%;

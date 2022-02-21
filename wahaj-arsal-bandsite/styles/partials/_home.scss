@@ -57,7 +57,7 @@
 
     @include tablet {
       @include d-t-body-copy;
-      font-weight: bold;
+      font-weight: 600;
       padding: 0 0 3rem 0;
     }
   }
@@ -84,7 +84,7 @@
 
   &__title {
     @include m-body-footer-copy;
-    font-weight: 600;
+    font-weight: 500;
     padding: 0 0 1rem 0;
 
     @include tablet {
@@ -114,6 +114,7 @@
 
   &__para {
     @include m-body-footer-copy;
+    font-weight: 400;
     @include tablet {
       @include d-t-body-copy;
     }
@@ -152,7 +153,6 @@
     }
   }
   &__img {
-    transition: all 1s ease-in-out;
     width: 100%;
     filter: grayscale(100%);
     padding: 0.5rem 0; //1rem total, 0.5 per picture
@@ -196,7 +196,7 @@
   &__picture {
     width: 20%;
     background-image: url("../../assets/Images/Mohan-muruge.jpg");
-    background-position: -4px;
+    background-position: -0.25rem; //-4px
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 2.25rem;
@@ -206,7 +206,7 @@
     @include tablet {
       max-width: 3rem;
       max-height: 3rem;
-      margin-top: 25px;
+      margin-top: 1.563rem; //25px
     }
   }
   &__form {
@@ -217,12 +217,13 @@
   &__label {
     @include m-body-footer-copy;
     color: $clr-primary-light;
-    font-weight: 400;
     padding-bottom: 0.25rem;
     text-transform: uppercase;
     // font-weight: 600;
     @include tablet {
-      @include d-t-body-copy;
+      // @include d-t-body-copy;
+      @include d-t-labels-buttons;
+      font-weight: 600;
     }
   }
   &__name,
@@ -320,7 +321,7 @@
     @include tablet {
       max-width: 3rem;
       max-height: 3rem;
-      margin-top: 10px;
+      margin-top: 0.625rem; //10px
     }
   }
 

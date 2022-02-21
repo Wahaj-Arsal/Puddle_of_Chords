@@ -6,7 +6,7 @@
 
 .show {
   max-width: 1020px;
-  padding: 1.5rem 1rem 1rem 1rem;
+  padding: 1.5rem 0 1rem 0;
   margin: 0 auto;
   @include tablet {
     padding: 0 1.125rem 1.75rem 1.125rem;
@@ -23,6 +23,7 @@
   }
   &__title {
     @include m-page-section-header;
+    padding: 0 1rem;
     @include tablet {
       @include d-t-section-header;
       padding: 3rem 1.125rem 2.25rem 1.125rem;
@@ -42,7 +43,9 @@
   &__header {
     display: none;
     color: $clr-primary-light;
+    text-transform: uppercase;
     @include tablet {
+      @include d-t-body-copy;
       @include flex(row, space-between, center);
       padding: 0 1.125rem;
       height: 1.5rem;
@@ -54,7 +57,7 @@
   &__item {
     @include flex(column, center, left);
     border-bottom: 2px solid $clr-secondary-light;
-    padding: 1rem 0;
+    padding: 1rem;
     @include tablet {
       @include flex(row, space-between, baseline);
       padding: 1rem 1.125rem;
@@ -74,17 +77,19 @@
     @include tablet {
       display: block;
       text-align: justify;
-      @include d-t-body-copy;
-      font-size: 1rem;
+      @include d-t-labels-buttons;
       font-weight: 600;
       width: 25%;
     }
   }
   &__label {
     @include m-labels-buttons;
+    // @include m-body-footer-copy;
+    font-weight: 500;
     font-size: 0.75rem; //12px
     color: $clr-primary-light;
     margin: 0.25rem 0 0.2rem 0;
+    text-transform: uppercase;
     @include tablet {
       display: none;
     }
@@ -101,22 +106,22 @@
   }
   &__venue {
     @include m-body-footer-copy;
-    font-weight: 600;
+    // font-weight: 600;
     padding: 0 0 0.25rem 0;
     @include tablet {
       @include d-t-body-copy;
-      font-weight: 600;
+      // font-weight: 600;
       width: 25%;
     }
   }
   &__location {
     @include m-body-footer-copy;
-    font-weight: 600;
+    // font-weight: 600;
     padding-bottom: 1rem;
     padding: 0 0 0.25rem 0;
     @include tablet {
       @include d-t-body-copy;
-      font-weight: 600;
+      // font-weight: 600;
       width: 25%;
     }
   }

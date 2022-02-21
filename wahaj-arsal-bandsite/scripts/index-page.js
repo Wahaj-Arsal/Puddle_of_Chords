@@ -147,15 +147,12 @@ function deleteComment(e) {
 }
 
 function likeComment(e) {
-  // e.remove();
   let id = e.id;
-  // console.log(id);
   axios
     .put(
       `https://project-1-api.herokuapp.com/comments/${id}/like/?api_key=9b6a5a60-a04e-4c65-85dd-71b62986ca6e`
     )
     .then((response) => {
-      // console.log(response);
       getCommentData();
     })
     .catch((err) => console.log("My POST API Error: ", err));

@@ -19,9 +19,9 @@ function getShows() {
   axios
     .get(API_URL + "showdates" + ACCESS_API_KEY)
     .then((response) => {
-      for (let i = 0; i < response.data.length; i++) {
-        showsArray.push(response.data[i]);
-      }
+      response.data.forEach((i) => {
+        showsArray.push(i);
+      });
       createSection(showsArray);
       const showItem = document.querySelectorAll(".show__item");
       clickListener(showItem);
@@ -43,10 +43,10 @@ function appendDiv(myArray) {
   unOrderedList(container);
   const unOL = document.querySelector(".show__list");
   createLabelLi(unOL);
-  for (let i = 0; i < myArray.length; i++) {
-    const element = createLi(myArray[i], unOL);
+  myArray.forEach((i) => {
+    const element = createLi(i, unOL);
     container.appendChild(element);
-  }
+  });
 }
 
 function createTitle(container) {
