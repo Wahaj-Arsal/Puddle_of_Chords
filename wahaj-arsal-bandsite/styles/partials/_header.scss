@@ -20,12 +20,12 @@
     padding: 1rem 0 0.5rem 0;
     @include m-page-section-header;
     @include tablet {
-      padding: 0.5rem 2.25rem 0 2.25rem;
+      padding: 0.5rem 1rem 0 2.25rem;
     }
   }
   &__logo {
-    max-height: 1.25rem; //20px
-    max-width: 7.5rem; //120px;
+    max-height: 3rem; //20px
+    max-width: 8rem; //120px;
   }
   &__menu {
     width: 100%;

@@ -50,7 +50,7 @@ export function createIcons(className, filePath, altText) {
   let img = document.createElement("img");
   img.classList.add(className);
   img.setAttribute("alt", altText);
-  img.src = "../assets/Icons/SVG/icon-" + filePath + ".svg";
+  img.src = "assets/Icons/SVG/icon-" + filePath + ".svg";
   // img.setAttribute("id", id);
   return img;
 }
