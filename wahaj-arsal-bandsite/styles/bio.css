@@ -223,9 +223,6 @@ textarea {
   align-items: flex-start;
   padding: 0.75rem 0;
 }
-.footer__content:nth-child(6) {
-  padding: 2.5rem 0 0 0;
-}
 @media only screen and (min-width: 768px) {
   .footer__content {
     display: flex;
@@ -378,6 +375,10 @@ textarea {
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
+}
+.footer__logo {
+  max-height: 3rem;
+  max-width: 8rem;
 }
 @media only screen and (min-width: 768px) {
   .footer__logo {
