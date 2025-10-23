@@ -1,6 +1,6 @@
 /** @format */
 
-// import myArray from "../data/items.json" assert { type: "json" };
+// import {data} from "../data/items.json" assert { type: "json" };
 import {
   API_URL,
   ACCESS_API_KEY,
@@ -10,24 +10,26 @@ import {
 } from "./helper-functions.js";
 
 let showsArray = [];
+// let myArray = "";
 
 const section = document.querySelector(".show");
 
 getShows();
 
 function getShows() {
-  axios
-    .get(API_URL + "showdates" + ACCESS_API_KEY)
-    .then((response) => {
-      response.data.forEach((i) => {
+  fetch("../data/items.json")
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      data.forEach((i) => {
         showsArray.push(i);
       });
+      console.log(showsArray);
       createSection(showsArray);
       const showItem = document.querySelectorAll(".show__item");
       clickListener(showItem);
       mouseOverListener(showItem);
-    })
-    .catch((err) => console.log("My API Error: ", err));
+    });
 }
 
 function createSection(myArray) {
@@ -103,10 +105,10 @@ function createLi(content, unOL) {
   let updatedDate = newDate.replace(",", "");
 
   //Label - Date
-  createContent("Date", updatedDate, li, "show__date");
+  createContent("Date", content.date, li, "show__date");
 
   //Label - Venue
-  createContent("Venue", content.place, li, "show__venue");
+  createContent("Venue", content.venue, li, "show__venue");
 
   //Label - Location
   createContent("Location", content.location, li, "show__location");
