@@ -24,7 +24,7 @@ function getShows() {
       data.forEach((i) => {
         showsArray.push(i);
       });
-      console.log(showsArray);
+      // console.log(showsArray);
       createSection(showsArray);
       const showItem = document.querySelectorAll(".show__item");
       clickListener(showItem);

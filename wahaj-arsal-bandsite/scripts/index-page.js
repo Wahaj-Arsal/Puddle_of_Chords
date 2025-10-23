@@ -118,7 +118,7 @@ function pushObject(name, comment) {
   // console.log("obj1", myObj);
   // console.log("myObj", apiObj);
   // myObj.timestamp = new Date();
-  postCommentData(myObj);
+  // postCommentData(myObj);
   // commentArray.push(myObj);
   // displayComment(commentArray);
 }
@@ -153,7 +153,7 @@ function likeComment(e) {
       `https://project-1-api.herokuapp.com/comments/${id}/like/?api_key=9b6a5a60-a04e-4c65-85dd-71b62986ca6e`
     )
     .then((response) => {
-      getCommentData();
+      // getCommentData();
     })
     .catch((err) => console.log("My POST API Error: ", err));
 }
@@ -179,24 +179,24 @@ function createHTML(comment) {
     if (e.target.classList.contains("comment__img")) {
       let likeImg =
         e.target.parentElement.parentElement.parentElement.parentElement;
-      likeComment(likeImg);
+      // likeComment(likeImg);
     } else if (e.target.classList.contains("comment__like")) {
       let likeBtn = e.target.parentElement.parentElement.parentElement;
-      likeComment(likeBtn);
+      // likeComment(likeBtn);
     }
   });
 
-  const commentDelete = createButton("comment__delete", null);
-  commentDelete.addEventListener("click", (e) => {
-    if (e.target.classList.contains("comment__img")) {
-      let deleteImg =
-        e.target.parentElement.parentElement.parentElement.parentElement;
-      deleteComment(deleteImg);
-    } else if (e.target.classList.contains("comment__delete")) {
-      let deleteBtn = e.target.parentElement.parentElement.parentElement;
-      deleteComment(deleteBtn);
-    }
-  });
+  // const commentDelete = createButton("comment__delete", null);
+  // commentDelete.addEventListener("click", (e) => {
+  //   if (e.target.classList.contains("comment__img")) {
+  //     let deleteImg =
+  //       e.target.parentElement.parentElement.parentElement.parentElement;
+  //     deleteComment(deleteImg);
+  //   } else if (e.target.classList.contains("comment__delete")) {
+  //     let deleteBtn = e.target.parentElement.parentElement.parentElement;
+  //     deleteComment(deleteBtn);
+  //   }
+  // });
 
   const commentLikeImg = createIcons("comment__img", "like", "like button");
   const commentDeleteImg = createIcons(
@@ -240,7 +240,7 @@ function newMoment(commentDate) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  getCommentData();
+  // getCommentData();
 });
 
 //function gets the comments data as an object and stores it in myArray. Then calls function displayComment to cycle through and render.
@@ -265,7 +265,7 @@ function postCommentData(myObj) {
   axios
     .post(API_URL + "comments" + ACCESS_API_KEY, myObj)
     .then((response) => {
-      getCommentData();
+      // getCommentData();
     })
     .catch((err) => console.log("My POST API Error: ", err));
 }
